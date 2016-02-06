@@ -1,0 +1,25 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+	
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+	
+	server_name *.*;
+	
+	location /munin/static/ {
+		alias /etc/munin/static/;
+		index index.html
+		expires modified +1w;
+	}
+	
+	location /munin/ {
+		alias /var/cache/munin/www/;
+		index index.html
+		expires modified +310s;
+	}
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}

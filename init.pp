@@ -1,1 +1,2 @@
-include apache
+include nginx
+include munin
