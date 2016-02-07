@@ -8,6 +8,7 @@ class spaceflightnow {
 	cron { "spaceflightnow":
 		ensure => present,
 		command => "/opt/spaceflightnow.py",
-		minute => 0
+		minute => 0,
+		require => File["/opt/spaceflightnow.py"]
 	}
 }
