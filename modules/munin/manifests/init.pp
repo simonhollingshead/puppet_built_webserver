@@ -16,6 +16,6 @@ class munin {
         group  => root,
         source => "puppet:///modules/munin/default",
         require => Package["nginx"],
-        notify => Service["nginx"]
+        notify => Exec["reload-nginx"]
     }
 }

@@ -9,4 +9,4 @@ class { "apt":
 include nginx
 include munin
 include python
-include latex
+#include latex

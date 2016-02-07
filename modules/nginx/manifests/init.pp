@@ -12,4 +12,16 @@ class nginx {
         status => running,
         require => Package["nginx"]
     }
+    
+    exec {
+    "reload-nginx" :
+      refreshonly => true,
+      command => "/usr/sbin/service nginx reload",
+      require => Package["nginx"];
+
+    "restart-nginx" :
+      refreshonly => true,
+      command => "/usr/sbin/service nginx restart",
+      require => Package["nginx"];
+  }
 }
