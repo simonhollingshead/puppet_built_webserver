@@ -20,10 +20,7 @@ class python {
 	    provider => pip3
 	}
 	
-	package { "praw2":
-	    name => "praw",
-	    ensure => present,
-	    require => Package["python-pip"],
-	    provider => pip
+	package { ["python3-icalendar","python3-bs4"]:
+		ensure => present
 	}
-}
+}	
