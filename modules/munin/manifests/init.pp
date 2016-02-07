@@ -8,6 +8,8 @@ class munin {
         require => Package["munin"]
     }
     
+    include munin::packages
+    
     file { "/etc/nginx/sites-enabled/default":
         mode   => "0644",
         owner  => root,
