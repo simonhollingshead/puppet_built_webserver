@@ -15,6 +15,7 @@ rm puppet.deb
 apt-get update
 apt-get --yes --force-yes install puppet-agent git
 git clone https://github.com/simonhollingshead/puppet_built_webserver.git $WHERE
+puppet module install puppetlabs-apt
 
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath $WHERE/modules $WHERE/init.pp
 ```
