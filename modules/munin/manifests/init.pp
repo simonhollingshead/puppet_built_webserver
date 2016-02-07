@@ -8,6 +8,11 @@ class munin {
         require => Package["munin"]
     }
     
+    exec { "reload-munin":
+        command => "/usr/sbin/service munin-node restart",
+        refreshonly => true
+    }
+ 
     include munin::packages
     
     file { "/etc/nginx/sites-enabled/default":

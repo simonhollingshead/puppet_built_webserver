@@ -11,6 +11,6 @@ class munin::packages {
         ensure => link,
         target => "/usr/share/munin/plugins/karma.py",
         require => File["/usr/share/munin/plugins/karma.py"],
-        notify => Service["munin-node"]
+        notify => Exec["reload-munin"]
     }
 }
