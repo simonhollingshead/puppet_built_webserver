@@ -2,7 +2,7 @@ stage { 'first':
   before => Stage['main'],
 }
 
-class { "apt":
+class { "first":
     stage => first
 }
 
