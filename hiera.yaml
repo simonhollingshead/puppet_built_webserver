@@ -1,0 +1,14 @@
+---
+:merge_behavior: deeper
+:backends:
+  - eyaml
+  - yaml
+:logger: console
+:yaml:
+  :datadir: '/etc/git_puppet/hieradata'
+:eyaml:
+  :datadir: '/etc/git_puppet/hieradata'
+  :pkcs7_private_key: /etc/git_puppet/keys/private_key.pkcs7.pem
+  :pkcs7_public_key: /etc/git_puppet/keys/public_key.pkcs7.pem
+:hierarchy:
+  - common
