@@ -1,0 +1,3 @@
+[overcast]
+env.overcast_email <%= $email %>
+env.overcast_password <%= $password %>

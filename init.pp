@@ -11,4 +11,3 @@ include munin
 include python
 #include latex
 include spaceflightnow
-include test
