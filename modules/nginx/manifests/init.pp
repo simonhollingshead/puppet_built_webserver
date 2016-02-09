@@ -13,6 +13,11 @@ class nginx {
         require => Package["nginx"]
     }
     
+    package { "fcgiwrap":
+        ensure => present,
+        require => Service["nginx"]
+    }
+    
     file { "/etc/nginx/sites-available/default":
         mode   => "0644",
         owner  => root,

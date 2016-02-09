@@ -12,7 +12,7 @@ if len(sys.argv) >= 2 and sys.argv[1] == "config":
 	print("graph_title Overcast")
 	print("graph_vlabel Seconds")
 	print("sec.label Seconds of unlistened podcasts")
-	print("unk.label Podcasts with unknown length")
+	#print("unk.label Podcasts with unknown length")
 else:
     jar = cookiejar.CookieJar()
     opener = build_opener(HTTPCookieProcessor(jar))
@@ -33,4 +33,4 @@ else:
                     failed += 1
     
     print("sec.value %d" % time_val.total_seconds())
-    print("unk.value %d" % failed)
+    #print("unk.value %d" % failed)
