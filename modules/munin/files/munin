@@ -1,0 +1,20 @@
+server {
+	listen 80;
+	listen [::]:80;
+	
+	root /var/cache/munin/www/;
+	index index.html;
+	expires modified +310s;
+	
+	server_name munin.*;
+	
+	location /static/ {
+		alias /etc/munin/static/;
+		index index.html
+		expires modified +1w;
+	}
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
