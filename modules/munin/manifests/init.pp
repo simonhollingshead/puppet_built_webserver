@@ -14,7 +14,8 @@ class munin {
     
     exec { "reload-munin":
         command => "/usr/sbin/service munin-node restart",
-        refreshonly => true
+        refreshonly => true,
+        require => Service["munin-node"]
     }
  
     include munin::packages
@@ -63,5 +64,22 @@ class munin {
         target => '/etc/nginx/sites-available/munin',
         require => File["/etc/nginx/sites-available/munin"],
         notify => Exec["reload-nginx"] # Reload on initial symbolic link.
+    }
+    
+    # Remove unwanted plugins
+    file { ["/etc/munin/plugins/diskstats",
+    "/etc/munin/plugins/df_inode",
+    "/etc/munin/plugins/fw_packets",
+    "/etc/munin/plugins/netstat",
+    "/etc/munin/plugins/forks",
+    "/etc/munin/plugins/vmstat",
+    "/etc/munin/plugins/entropy",
+    "/etc/munin/plugins/irqstats",
+    "/etc/munin/plugins/open_inodes",
+    "/etc/munin/plugins/interrupts",
+    "/etc/munin/plugins/users",
+    "/etc/munin/plugins/if_err_eth0"]:
+        ensure => absent,
+        notify => Exec["reload-munin"]
     }
 }
