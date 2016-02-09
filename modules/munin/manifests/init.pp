@@ -3,8 +3,13 @@ class munin {
         ensure => present
     }
     
+    package { "perl":
+        ensure => present,
+    }
+    
     package { "libcgi-fast-perl":
-        ensure => present
+        ensure => present,
+        require => Package["perl"]
     }
     
     service { ["munin", "munin-node"]:

@@ -72,4 +72,68 @@ class munin::packages ($overcast_email, $overcast_password) {
         require => File["/usr/share/munin/plugins/ipv4_tld_ready"],
         notify => Exec["reload-munin"] # Reload when initially installed.
     }
+    
+    file { "/usr/share/munin/plugins/ratesetter":
+        mode   => "0755",
+        owner  => root,
+        group  => root,
+        source => "puppet:///modules/munin/ratesetter",
+        require => Package["munin"],
+	    notify => Exec["reload-munin"] # Reload when file changes.
+    }
+    
+    file { "/etc/munin/plugins/ratesetter":
+        ensure => link,
+        target => "/usr/share/munin/plugins/ratesetter",
+        require => File["/usr/share/munin/plugins/ratesetter"],
+        notify => Exec["reload-munin"] # Reload when initially installed.
+    }
+    
+    file { "/usr/share/munin/plugins/ntp_kernel_err":
+        mode   => "0755",
+        owner  => root,
+        group  => root,
+        source => "puppet:///modules/munin/ntp_kernel_err",
+        require => [Package["munin"],Package["ntp"]],
+	    notify => Exec["reload-munin"] # Reload when file changes.
+    }
+    
+    file { "/etc/munin/plugins/ntp_kernel_err":
+        ensure => link,
+        target => "/usr/share/munin/plugins/ntp_kernel_err",
+        require => File["/usr/share/munin/plugins/ntp_kernel_err"],
+        notify => Exec["reload-munin"] # Reload when initially installed.
+    }
+    
+    file { "/usr/share/munin/plugins/ntp_packets.pl":
+        mode   => "0755",
+        owner  => root,
+        group  => root,
+        source => "puppet:///modules/munin/ntp_packets.pl",
+        require => [Package["munin"],Package["ntp"],Package["perl"]],
+	    notify => Exec["reload-munin"] # Reload when file changes.
+    }
+    
+    file { "/etc/munin/plugins/ntp_packets.pl":
+        ensure => link,
+        target => "/usr/share/munin/plugins/ntp_packets.pl",
+        require => File["/usr/share/munin/plugins/ntp_packets.pl"],
+        notify => Exec["reload-munin"] # Reload when initially installed.
+    }
+    
+    file { "/usr/share/munin/plugins/apt_all.pl":
+        mode   => "0755",
+        owner  => root,
+        group  => root,
+        source => "puppet:///modules/munin/apt_all.pl",
+        require => [Package["munin"],Package["perl"]],
+	    notify => Exec["reload-munin"] # Reload when file changes.
+    }
+    
+    file { "/etc/munin/plugins/apt_all.pl":
+        ensure => link,
+        target => "/usr/share/munin/plugins/apt_all.pl",
+        require => File["/usr/share/munin/plugins/apt_all.pl"],
+        notify => Exec["reload-munin"] # Reload when initially installed.
+    }
 }

@@ -11,3 +11,4 @@ include munin
 include python
 #include latex
 include spaceflightnow
+include ntp
