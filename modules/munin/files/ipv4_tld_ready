@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+        config)
+        cat <<'EOM'
+graph_title IPv6 Ready TLDs
+graph_args -l 0
+graph_vlabel TLDs
+graph_category Web
+graph_info The number of TLDs that are IPv6 ready.
+v6tld.draw AREA
+v4tld.draw STACK
+v6tld.label IPv6 TLDs
+v4tld.label IPv4 TLDs
+EOM
+        exit 0;;
+esac
+
+CURL=`curl -s http://ipv6.he.net/exhaustionFeed.php`
+
+V4=`echo $CURL | xmlstarlet sel -t -v "//totalTLDs"`
+V6=`echo $CURL | xmlstarlet sel -t -v "//v6TLDs"`
+
+echo "v6tld.value" $V6
+echo "v4tld.value" $(($V4-$V6))

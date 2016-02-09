@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+        config)
+        cat <<'EOM'
+graph_title IPv6 Ready ASNs
+graph_args -l 0
+graph_vlabel ASNs
+graph_category Web
+graph_info The number of ASNs that are IPv6 ready.
+v6asn.draw AREA
+v4asn.draw STACK
+v6asn.label IPv6 ASNs
+v4asn.label IPv4 ASNs
+EOM
+        exit 0;;
+esac
+
+CURL=`curl -s http://ipv6.he.net/exhaustionFeed.php`
+
+V4=`echo $CURL | xmlstarlet sel -t -v "//totalASNs"`
+V6=`echo $CURL | xmlstarlet sel -t -v "//v6ASNs"`
+
+echo "v6asn.value" $V6
+echo "v4asn.value" $(($V4-$V6))

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case $1 in
+        config)
+        cat <<'EOM'
+graph_title Ratesetter Provision Fund
+graph_vlabel GBP
+graph_category Web
+graph_info The amount of available funds in the Ratesetter provision scheme
+amt.label Current
+amt.draw LINE1
+EOM
+        exit 0;;
+esac
+
+echo -n "amt.value "
+curl -s "https://www.ratesetter.com/lend/provisionfund" | grep -Po "(?<=(hero-provision-amount)\">)([^<]+)" | tr -d '[£,]'
