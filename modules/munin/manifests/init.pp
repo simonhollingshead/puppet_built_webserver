@@ -52,6 +52,7 @@ class munin {
     service { "munin-fastcgi":
         ensure => running,
         require => [Service["munin"],File["/etc/init.d/munin-fastcgi"],Package["fcgiwrap"],Package["libcgi-fast-perl"]],
+	enable => true,
         hasstatus => true
     }
     
