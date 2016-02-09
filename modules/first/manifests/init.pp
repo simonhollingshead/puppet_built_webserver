@@ -1,9 +1,19 @@
 class first {
-    # TODO: Validate if needed before performing, so we don't always have to update apt.
+    file { "/opt/flags":
+        ensure => directory
+    }
+    
     exec { "add-universe":
         command => "/usr/bin/add-apt-repository \"deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse\"",
         user => root,
-        notify => Exec["apt-update"]
+        creates => "/opt/flags/universe-added",
+        notify => Exec["apt-update"],
+        before => File["/opt/flags/universe-added"]
+    }
+    
+    file { "/opt/flags/universe-added":
+        ensure => file,
+        require => File["/opt/flags"]
     }
     
     exec { "apt-update":
@@ -13,12 +23,12 @@ class first {
     }
     
     package { "ruby":
-	ensure => present
+	    ensure => present
     }
     
     package { "hiera-eyaml":
-	ensure => present,
-	provider => gem,
-	require => Package["ruby"]
+	    ensure => present,
+        provider => gem,
+	    require => Package["ruby"]
     }
 }
