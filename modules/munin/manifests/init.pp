@@ -42,7 +42,7 @@ class munin {
     }
     
     file { "/etc/init.d/munin-fastcgi":
-        mode => "0744",
+        mode => "0755",
         owner => root,
         group => root,
         source => "puppet:///modules/munin/munin-fastcgi",

@@ -1,7 +1,6 @@
-Munin unread email
-PHP
 Weechat
 Fix export location of Launch Calendar
 Mail server
+Subdomains: CV, GPM, Stats (NTP+PB+Email)
 
 Add open source licenses to all work
