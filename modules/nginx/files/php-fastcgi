@@ -1,0 +1,65 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          php-fastcgi
+# Required-Start:    $remote_fs $network
+# Required-Stop:     $remote_fs $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts php-fastcgi
+# Description:       Spawn PHP FCGI sockets for Web access
+### END INIT INFO
+
+#
+# php-fastcgi     Startup script for PHP CGI services
+#
+
+DAEMON=/usr/bin/spawn-fcgi
+SOCK=/var/run/php-fastcgi/php-fastcgi.sock
+PIDFILE=/var/run/php-fastcgi/php-fastcgi.pid
+CHILDREN=10
+PHPLOC=/usr/bin/php5-cgi
+DESC="PHP FCGI"
+
+start() {
+  $DAEMON -s $SOCK -u www-data -g www-data -P $PIDFILE -C $CHILDREN $PHPLOC 2> /dev/null || echo "Already running"
+}
+
+stop() {
+  kill -3 `cat $PIDFILE` || echo "Not running"
+}
+
+status() {
+    kill -s 0 `cat $PIDFILE`
+}
+
+
+case "$1" in
+  start)
+    echo "Starting $DESC: "
+    start
+  ;;
+  stop)
+    echo "Stopping $DESC: "
+    stop
+  ;;
+  status)
+    status
+  ;;
+  restart|reload)
+    echo "Restarting $DESC: "
+    stop
+    # One second might not be time enough for a daemon to stop,
+    # if this happens, d_start will fail (and dpkg will break if
+    # the package is being upgraded). Change the timeout if needed
+    # be, or change d_stop to have start-stop-daemon use --retry.
+    # Notice that using --retry slows down the shutdown process somewhat.
+    sleep 1
+    start
+  ;;
+  *)
+    echo "Usage: $SCRIPTNAME {start|stop|restart|reload|status}" >&2
+    exit 3
+  ;;
+esac
+
+exit $?
