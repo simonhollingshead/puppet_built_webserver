@@ -21,7 +21,10 @@ PHPLOC=/usr/bin/php5-cgi
 DESC="PHP FCGI"
 
 start() {
-  $DAEMON -s $SOCK -u www-data -g www-data -P $PIDFILE -C $CHILDREN $PHPLOC 2> /dev/null || echo "Already running"
+  mkdir -p /var/run/php-fastcgi
+  chmod 755 /var/run/php-fastcgi
+  chown www-data:www-data /var/run/php-fastcgi
+  $DAEMON -s $SOCK -u www-data -g www-data -P $PIDFILE -C $CHILDREN $PHPLOC || echo "Already running"
 }
 
 stop() {

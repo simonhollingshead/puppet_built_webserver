@@ -24,7 +24,7 @@ class nginx {
     
     file { "/var/run/php-fastcgi":
         ensure => directory,
-        mode => "0664",
+        mode => "0755",
         owner => www-data,
         group => www-data
     }
