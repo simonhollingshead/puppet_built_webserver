@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>About</title>
+
+        <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/media/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <style type="text/css">
+        body{background-color: #f8f8f8;color:#302c22}
+        hr{border-top-color:#e1e1e1}
+        a:hover .nolink{text-decoration:none;display:inline-block}
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center"><a href="/"><i class="fa fa-chevron-left"></i><span class="nolink">&nbsp;</span>Launch Calendar</a> &middot; About</h1>
+        <hr />
+        <p style="padding:0 1% 0 1%">
+        This subdomain hosts the result of an <b>unofficial</b> scraper that runs hourly against <a href="http://spaceflightnow.com/launch-schedule/">the SpaceFlightNow launch schedule</a>.  It attempts to parse the list of future launches, and creates an iCal file for subscribing to in your calendar software of choice.<br /><br />
+            If you're using Google Calendar, please be aware that they only check external calendars once or twice a day, so you may not get updates as quickly, and all unknown launches (which get set to today's date) won't be moved until many hours after midnight.<br /><br />
+            To find out more about the script, or see its source, please check my web server's <a href="https://github.com/simonhollingshead/puppet_built_webserver/tree/master/modules/spaceflightnow">GitHub Repository</a>.<br /><br />
+            None of this would be possible without <a href="http://spaceflightnow.com/">SpaceFlightNow</a> (a website which I have no affiliation to).  If you don't already use them for news related to space, you absolutely should.  All data contained within the calendar entries is taken from their webpages, and is not owned by me at all.
+        </p>
+        <hr />
+    </body>
+</html>

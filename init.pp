@@ -12,3 +12,4 @@ include python
 #include latex
 include spaceflightnow
 include ntp
+include utils

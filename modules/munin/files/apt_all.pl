@@ -34,7 +34,7 @@ $ENV{'LC_ALL'}="C";
 my $aptcache = '/var/cache/apt';
 my $dpkgstatus = '/var/lib/dpkg/status';
 # Releases to monitor
-my @releases = ("trusty", "trusty-security");
+my @releases = ("trusty");
 
 # Print the apt state, regenerating the state cache if necessary
 sub print_state() {

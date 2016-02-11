@@ -121,6 +121,6 @@ for launch in all_launches:
         event.add('dtstart', (launch["launch_date"].replace(tzinfo=pytz.utc))+launch["window_start"])
         event.add('dtend', (launch["launch_date"].replace(tzinfo=pytz.utc))+launch["window_end"])
     cal.add_component(event)
-with open("/tmp/my.ics", "wb") as f:
+with open("/srv/www/sfn/sfn.ics", "wb", int("0644", 8)) as f:
     f.write(cal.to_ical())
     print("Saved version "+VERSION+".")

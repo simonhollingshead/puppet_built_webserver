@@ -1,5 +1,5 @@
 Weechat
-Fix export location of Launch Calendar
+Rename all SFN related things to 'launch calendar'.
 Mail server
 Subdomains: CV, GPM, Stats (NTP+PB+Email)
 
