@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    listen [::]:80;
+    root /srv/www/launchcalendar;
+    index index.htm;
+
+    server_name launchcalendar.*;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
