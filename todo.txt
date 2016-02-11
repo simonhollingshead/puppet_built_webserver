@@ -1,7 +1,7 @@
 Weechat
 Rename all SFN related things to 'launch calendar'.
 Mail server
-Subdomains: CV, GPM, Stats (NTP+PB+Email)
+Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
 Scrutinise dependencies (dot -Tpng /opt/puppetlabs/puppet/cache/state/graphs/relationships.dot -o /srv/www/none/outfile.png)
 
 Add open source licenses to all work

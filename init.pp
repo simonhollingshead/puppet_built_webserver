@@ -10,6 +10,6 @@ include nginx
 include munin
 include python
 #include latex
-include spaceflightnow
+include launchcalendar
 include ntp
 include utils
