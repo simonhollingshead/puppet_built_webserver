@@ -5,13 +5,14 @@ class ntp {
     
     service { "ntp":
         ensure => running,
-        require => Package["ntp"],
+        require => [Package["ntp"],File["/etc/ntp.conf"]],
         notify => Exec["force-ntp-update"]
     }
     
     exec { "force-ntp-update":
         command => "/usr/sbin/ntpd -gq",
-        refreshonly => true
+        refreshonly => true,
+        require => Package["ntp"];
     }
     
     exec { "reload-ntp" :

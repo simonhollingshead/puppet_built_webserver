@@ -33,7 +33,7 @@ class munin::packages ($overcast_email, $overcast_password) {
     file { "/etc/munin/plugins/overcast":
         ensure => link,
         target => "/usr/share/munin/plugins/overcast.py",
-        require => [File["/usr/share/munin/plugins/overcast.py"],File["/usr/share/munin/plugins/overcast.py"]],
+        require => [File["/usr/share/munin/plugins/overcast.py"],File["/etc/munin/plugin-conf.d/overcast"]],
         notify => Exec["reload-munin"] # Reload when initially installed.
     }
     
