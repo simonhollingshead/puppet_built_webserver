@@ -12,9 +12,7 @@ rm puppet.deb
 apt-get update
 apt-get --yes --force-yes install puppet-agent git
 git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/git_puppet
-/opt/puppetlabs/puppet/bin/gem install hiera-eyaml
-/opt/puppetlabs/puppet/bin/puppet module install saz/sudo
-/opt/puppetlabs/puppet/bin/puppet module install acme/ohmyzsh
+/opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module
 gpg /etc/git_puppet/keys/private_*.gpg
 
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath $WHERE/modules:/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp

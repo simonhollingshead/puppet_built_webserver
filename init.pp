@@ -13,4 +13,5 @@ include python
 include launchcalendar
 include ntp
 include utils
-include zsh
+include users
+include coreservices

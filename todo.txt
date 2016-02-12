@@ -2,7 +2,5 @@ Weechat
 Mail server
 Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
 Scrutinise dependencies (dot -Tpng /opt/puppetlabs/puppet/cache/state/graphs/relationships.dot -o /srv/www/none/outfile.png)
-Set up zsh properly
-Configure sshd to only accept certificates
 
 Add open source licenses to all work
