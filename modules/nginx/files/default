@@ -9,7 +9,7 @@ server {
         include /etc/nginx/fastcgi_params;
         fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.sock;
         fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /usr/share/nginx/html/$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME /srv/www/none/$fastcgi_script_name;
     }
     
     location / {
