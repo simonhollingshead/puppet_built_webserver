@@ -5,10 +5,8 @@ The website where I commit all the puppet files that provision me a web server.
 ```shell
 sudo -i
 
-REPOFILE=https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb
-
 cd /tmp
-wget -O puppet.deb $REPOFILE
+wget -O puppet.deb https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb
 dpkg -i puppet.deb
 rm puppet.deb
 apt-get update
@@ -16,6 +14,7 @@ apt-get --yes --force-yes install puppet-agent git
 git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/git_puppet
 /opt/puppetlabs/puppet/bin/gem install hiera-eyaml
 /opt/puppetlabs/puppet/bin/puppet module install saz/sudo
+/opt/puppetlabs/puppet/bin/puppet module install acme/ohmyzsh
 gpg /etc/git_puppet/keys/private_*.gpg
 
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath $WHERE/modules:/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp
