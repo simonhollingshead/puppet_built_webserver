@@ -5,12 +5,21 @@ class launchcalendar {
 		require => [Package["python3-icalendar"],Package["python3-bs4"],File["/srv/www/launchcalendar"]]
 	}
 	
+	file { "/srv/www/launchcalendar/result.log":
+		ensure => present,
+		replace => no,
+		content => "",
+		owner => "www-data",
+		group => "www-data",
+		require => File["/srv/www/launchcalendar"]
+	}
+	
 	cron { "launchcalendar":
 		ensure => present,
 		user => www-data,
-		command => "/opt/launchcalendar.py",
+		command => "/opt/launchcalendar.py > /srv/www/launchcalendar/result.log",
 		minute => 0,
-		require => File["/opt/launchcalendar.py"]
+		require => [File["/opt/launchcalendar.py"],File["/srv/www/launchcalendar/result.log"]]
 	}
 	
 	file { "/srv/www/launchcalendar":

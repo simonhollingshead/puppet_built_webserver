@@ -53,7 +53,7 @@ for element in relevant_elements:
         if simplified_launch_date in CHEAT_MAPPINGS:
             this_mission["launch_date"] = CHEAT_MAPPINGS[simplified_launch_date]
             this_mission["unknown_date"] = True
-            print("Cheated - substituted %s for %s." % (launch_date, this_mission["launch_date"]))
+            print("Estimated %s as %s." % (launch_date, this_mission["launch_date"]))
         else:
             parsed_date = parse_with_formatters(launch_date, DATE_FORMATS, datetime.datetime, TODAY)
             this_mission["launch_date"] = parsed_date[0]
