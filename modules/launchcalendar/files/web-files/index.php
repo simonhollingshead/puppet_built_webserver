@@ -16,8 +16,8 @@ a:hover .nolink{text-decoration:none;display:inline-block}
 </head>
 <body>
 <div class="centreme">
-<h1>Launch Calendar</a></h1>
-&nbsp;
+<h1><i class="fa fa-rocket" style="font-size:200%"></i><br />Launch Calendar</a></h1>
+<hr style="width:500px" />
 <h2><a href="about.htm"><i class="fa fa-info-circle"></i><span class="nolink">&nbsp;</span>About/Credits</a></h2>
 &nbsp;
 <h2><a href="./launchcal.ics"><i class="fa fa-download"></i><span class="nolink">&nbsp;</span>Download</a></h2>
@@ -27,6 +27,7 @@ a:hover .nolink{text-decoration:none;display:inline-block}
 <h4>Latest run: <?php
 $date = explode('+',file('launchcal.ics')[1])[1];
 echo substr($date, 8, 2).":00 on ".substr($date, 0, 4)."-".substr($date, 4, 2)."-".substr($date, 6, 2);?></h4>
+<br />
 </div>
 </body>
 </html>

@@ -4,7 +4,7 @@ class utils {
 	}
 	
 	# TODO: Remove when no longer using Koding.
-	package { ["golang-go","golang-go-linux-amd64","puppetserver"]:
+	package { ["golang-go","golang-go-linux-amd64","golang-src","libgl1-mesa-dri","puppetserver"]:
 	    ensure => purged
 	}
 }
