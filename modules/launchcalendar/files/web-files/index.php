@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html class="fullscreenbody">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-	<title>Simon Hollingshead &middot; Launch Calendar</title>
-	    <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<html class="fullscreenbody" lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Simon Hollingshead &middot; Launch Calendar</title>
+        
+        <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="/media/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="/media/simonhollingshead.css" rel="stylesheet">
-</head>
+    </head>
 <body class="fullscreenbody">
 <div class="centreme">
-<h1><i class="fa fa-rocket" style="font-size:200%"></i><br />Launch Calendar</a></h1>
+<h1><i class="fa fa-rocket" style="font-size:200%"></i><br />Launch Calendar</h1>
 <hr style="width:500px" />
 <h2><a href="about.htm"><i class="fa fa-info-circle"></i><span class="nolink">&nbsp;</span>About/Credits</a></h2>
 &nbsp;
