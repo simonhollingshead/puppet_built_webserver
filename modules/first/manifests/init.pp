@@ -27,17 +27,7 @@ class first {
         provider => puppet_gem
     }
     
-    module { 'acme/ohmyzsh':
-        ensure => present,
-        modulepath => '/etc/puppetlabs/code/environments/production/modules'
-    }
-    
-    module { 'saz/sudo':
-        ensure => present,
-        modulepath => '/etc/puppetlabs/code/environments/production/modules'
-    }
-    
-    module { 'saz/ssh':
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }

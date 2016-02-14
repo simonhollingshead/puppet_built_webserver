@@ -15,3 +15,4 @@ include ntp
 include utils
 include users
 include coreservices
+include domainwatch
