@@ -1,6 +1,5 @@
 class latex {
-    # TODO: See if texlive-full is needed.
-    package { "texlive":
+    package { ["texlive-xetex","latex-xcolor","texlive-math-extra"]:
         ensure => present
     }
 }

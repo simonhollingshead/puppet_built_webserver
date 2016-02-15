@@ -20,7 +20,7 @@ cd /etc/git_puppet
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules -e 'include first'
 
 # Run the entire set of manifests.
-/opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp```
+/opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp
 ```
 
 # Commands to generate a hiera private key
