@@ -36,8 +36,8 @@ PIDFILE_HTML=/var/run/munin/fastcgi-munin-html.pid
 DESC="Munin FCGI for Graph and HTML"
 
 start() {
-  $DAEMON -s $FCGI_GRAPH_SOCK -U $WWW_USER -u $FCGI_USER -g $FCGI_GROUP -P $PIDFILE_GRAPH $FCGI_SPAWN_GRAPH 2> /dev/null || echo "Graph Already running"
-  $DAEMON -s $FCGI_HTML_SOCK -U $WWW_USER -u $FCGI_USER -g $FCGI_GROUP -P $PIDFILE_HTML $FCGI_SPAWN_HTML 2> /dev/null || echo "HTML Already running"
+  $DAEMON -s $FCGI_GRAPH_SOCK -U $WWW_USER -u $FCGI_USER -g $FCGI_GROUP -P $PIDFILE_GRAPH $FCGI_SPAWN_GRAPH >/var/log/muningraph 2>&1 || echo "Graph Already running"
+  $DAEMON -s $FCGI_HTML_SOCK -U $WWW_USER -u $FCGI_USER -g $FCGI_GROUP -P $PIDFILE_HTML $FCGI_SPAWN_HTML >/var/log/muninhtml 2>&1 || echo "HTML Already running"
 }
 
 stop() {
