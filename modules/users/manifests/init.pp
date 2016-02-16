@@ -41,4 +41,12 @@ class users ($simon_password) {
     ohmyzsh::upgrade { 'simon': }
     ohmyzsh::theme { 'simon': theme => 'ys' }
     ohmyzsh::plugins { 'simon': plugins => 'command-not-found common-aliases compleat cpanm debian git gitfast git-extras git-flow history pip python screne sprunge sudo' }
+
+    file { "/home/simon/.gitconfig":
+	source => "puppet:///modules/users/simon.gitconfig",
+	mode => "0644",
+	owner => simon,
+	group => simon,
+	require => [User["simon"]]
+    }
 }
