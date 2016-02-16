@@ -49,4 +49,11 @@ class users ($simon_password) {
 	group => simon,
 	require => [User["simon"]]
     }
+	
+    file { "/root/.gitconfig":                                                                                  
+        source => "puppet:///modules/users/simon.gitconfig",
+        mode => "0644",
+        owner => root,
+        group => root
+    }
 }
