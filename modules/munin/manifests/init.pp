@@ -51,10 +51,18 @@ class munin {
     
     service { "munin-fastcgi":
         ensure => running,
-        require => [Service["munin"],Service["munin-node"],File["/etc/init.d/munin-fastcgi"],Package["fcgiwrap"],Package["libcgi-fast-perl"],File["/var/log/munin/munin-cgi-graph.log"],File["/var/log/munin/munin-cgi-html.log"]],
+        require => [Wait_for["munin-datafile"], Service["munin"],Service["munin-node"],File["/etc/init.d/munin-fastcgi"],Package["fcgiwrap"],Package["libcgi-fast-perl"],File["/var/log/munin/munin-cgi-graph.log"],File["/var/log/munin/munin-cgi-html.log"]],
 	enable => true,
         hasstatus => true
     }
+
+wait_for { "munin-datafile":
+  query => '[ -f /var/lib/munin/datafile22 ]',
+  exit_code         => 0,
+  polling_frequency => 1,
+  max_retries       => 20,
+  require => [Service["munin"],Service["munin-node"]]
+}
     
     file { "/etc/nginx/sites-available/munin":
         mode   => "0644",

@@ -27,7 +27,7 @@ class first {
         provider => puppet_gem
     }
     
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer', 'basti1302/wait_for']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }
