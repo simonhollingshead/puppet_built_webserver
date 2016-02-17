@@ -6,44 +6,15 @@ class domainwatch {
 	service { "rabbitmq-server":
 		ensure => running
 	}
-	
-	file { "/etc/nginx/sites-available/domainwatch":
-        mode   => "0644",
-        owner  => root,
-        group  => root,
-        source => "puppet:///modules/domainwatch/domainwatch-nginx",
-        require => Package["nginx"],
-        notify => Exec["reload-nginx"] # Reload on new file.
-    }
 
-    file { '/etc/nginx/sites-enabled/domainwatch':
-        ensure => 'link',
-        target => '/etc/nginx/sites-available/domainwatch',
-        require => [File["/etc/nginx/sites-available/domainwatch"],File["/srv/www/domainwatch"]],
-        notify => Exec["reload-nginx"] # Reload on initial symbolic link.
-    }
-    
-    file { "/srv/www/domainwatch":
-        source => "puppet:///modules/domainwatch/web-files",
-        recurse => true,
-        require => File["/srv/www"],
-        owner => www-data,
-        group => www-data,
-        mode => "0644"
-    }
-    
+	nginx::new_subdomain{ "domainwatch": }
+		
     exec { "domainwatch-composer":
         user => root,
         environment => ["HOME=/root"],
         command => "/usr/local/bin/composer install",
         cwd => "/srv/www/domainwatch",
         require => [Class["composer"],File["/srv/www/domainwatch"]]
-    }
-    
-    file { "/srv/www/domainwatch/media":
-        ensure => "link",
-        target => "/srv/www/none/media",
-        require => File["/srv/www/none"]
     }
     
     package { "ruby2.0":

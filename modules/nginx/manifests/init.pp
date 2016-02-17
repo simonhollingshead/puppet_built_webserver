@@ -51,48 +51,27 @@ class nginx {
 	    enable => true,
         hasstatus => true
     }
-    
-    file { "/etc/nginx/sites-available/default":
-        mode   => "0644",
-        owner  => root,
-        group  => root,
-        source => "puppet:///modules/nginx/default",
-        require => Package["nginx"],
-        notify => Exec["reload-nginx"] # Reload on new file.
+   
+    nginx::new_subdomain { "default":
+	module => "nginx"
     }
-    
-    file { "/srv/www/none":
-        source => "puppet:///modules/nginx/web-files",
-        recurse => true,
-        require => File["/srv/www"],
-        owner => www-data,
-        group => www-data,
-        mode => "0644"
-    }
-    
-    file { "/srv/www/none/media/bootstrap":
+ 
+    file { "/srv/www/default/media/bootstrap":
         ensure => 'link',
-        target => '/srv/www/none/media/bootstrap-3.3.6',
-        require => File["/srv/www/none"]
+        target => '/srv/www/default/media/bootstrap-3.3.6',
+        require => File["/srv/www/default"]
     }
     
-    file { "/srv/www/none/media/jquery.min.js":
+    file { "/srv/www/default/media/jquery.min.js":
         ensure => 'link',
-        target => '/srv/www/none/media/jquery-2.2.0.min.js',
-        require => File["/srv/www/none"]
+        target => '/srv/www/default/media/jquery-2.2.0.min.js',
+        require => File["/srv/www/default"]
     }
     
-    file { "/srv/www/none/media/font-awesome":
+    file { "/srv/www/default/media/font-awesome":
         ensure => 'link',
-        target => '/srv/www/none/media/font-awesome-4.5.0',
-        require => File["/srv/www/none"]
-    }
-    
-    file { '/etc/nginx/sites-enabled/default':
-        ensure => 'link',
-        target => '/etc/nginx/sites-available/default',
-        require => [File["/etc/nginx/sites-available/default"],File["/srv/www/none"]],
-        notify => Exec["reload-nginx"] # Reload on initial symbolic link.
+        target => '/srv/www/default/media/font-awesome-4.5.0',
+        require => File["/srv/www/default"]
     }
     
     exec {

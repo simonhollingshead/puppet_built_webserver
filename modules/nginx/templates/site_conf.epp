@@ -1,0 +1,20 @@
+server {
+	listen 80<% if $subdomain == 'default' { %> default_server<% } %>;
+	listen [::]:80<% if $subdomain == 'default' { %> default_server ipv6only=on<% } %>;
+	root /srv/www/<%= $subdomain %>;
+	index index.php index.htm;
+	
+	<% if $subdomain != 'default' { %>server_name <%= $subdomain %>.*;<% } %>
+    	
+	location ~ \.php$ {
+		try_files $uri =404;
+		include /etc/nginx/fastcgi_params;
+		fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.sock;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME /srv/www/<%= $subdomain %>/$fastcgi_script_name;
+	}
+    	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}

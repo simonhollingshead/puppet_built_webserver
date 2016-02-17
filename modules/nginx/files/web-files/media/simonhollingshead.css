@@ -1,6 +1,28 @@
 body{background-color: #f8f8f8;color:#302c22}
 .fullscreenbody{height:100%;width:100%;margin:0px;display:table;vertical-align:middle;text-align:center}
-.centreme{display:table-cell;vertical-align:middle;}
+.verticalcenter{display:table-cell;vertical-align:middle;}
 hr{border-top-color:#e1e1e1}
 a:hover .nolink{text-decoration:none;display:inline-block}
 a:focus .nolink{text-decoration:none;display:inline-block}
+.texttitle{text-align:center}
+.textarea{padding: 0 1% 0 1%}
+
+hr.text-header-separator{margin-top:0}
+#subdomain-leader{padding-bottom:0}
+.text-body{font-size:125%}
+
+@media(max-width:767px){
+	#homediv{position:absolute;left:0.25em;top:0.25em;z-index:10;padding-top:0}
+        .leader-text{font-size:2em;padding:0.25em 0}
+        .runner-text{font-size:1.5em}
+        .mini-text{font-size:1em}
+        hr.separator{width:20em}
+}
+
+@media(min-width:768px){
+	#homediv{position:absolute;left:0.5em;top:0.5em;z-index:10;padding-top:0}
+        .leader-text{font-size:3em;padding:0.5em 0}
+        .runner-text{font-size:2.25em}
+        .mini-text{font-size:1.5em}
+        hr.separator{width:30em}
+}
