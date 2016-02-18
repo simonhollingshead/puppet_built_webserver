@@ -1,4 +1,4 @@
-class users ($simon_password) {
+class users::simon ($password,$github_key) {
     package { "zsh":
     	ensure => installed
     }
@@ -6,13 +6,22 @@ class users ($simon_password) {
     user { "simon":
         ensure => present,
         comment => "Simon Hollingshead",
-        password => pw_hash($simon_password, 'SHA-512', 'HhG9MFOeybJxPYx1W4fDv8VRSsZrbSCFIihOdp931Chd823BPbKnRYbaIDRayMD'),
+        password => pw_hash($password, 'SHA-512', 'HhG9MFOeybJxPYx1W4fDv8VRSsZrbSCFIihOdp931Chd823BPbKnRYbaIDRayMD'),
         managehome => yes,
         home => "/home/simon",
         purge_ssh_keys => true,
         shell => "/usr/bin/zsh",
         require => Package["zsh"]
     }
+
+	file { "/home/simon/.ssh/github_rsa":
+		ensure => file,
+		mode => "0600",
+		owner => simon,
+		group => simon,
+		content => "$github_key",
+		require => File["/home/simon/.ssh"]
+	}
 
     ssh_authorized_key { "simon@putty":
         user => 'simon',
@@ -50,8 +59,8 @@ class users ($simon_password) {
 	require => [User["simon"]]
     }
 	
-    file { "/root/.gitconfig":                                                                                  
-        source => "puppet:///modules/users/simon.gitconfig",
+    file { "/root/.gitconfig":
+	source => "puppet:///modules/users/simon.gitconfig",
         mode => "0644",
         owner => root,
         group => root
