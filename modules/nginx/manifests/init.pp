@@ -18,7 +18,7 @@ class nginx {
         require => Service["nginx"]
     }
     
-    package { ["php5-cli", "php5-cgi"]:
+    package { "php5-cgi":
         ensure => present
     }
     

@@ -1,5 +1,5 @@
 class utils {
-	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat"]:
+	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat","php5-cli"]:
 		ensure => present
 	}
 	
