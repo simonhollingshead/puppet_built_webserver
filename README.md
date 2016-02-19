@@ -17,7 +17,7 @@ git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/g
 cd /etc/git_puppet
 
 # Decrypt any commercial files that I cannot place on github unencrypted.
-for f in modules/latex/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys/private_key.pkcs7.pem ; done
+for f in modules/cv/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys/private_key.pkcs7.pem ; done
 
 # Apply first, on its own, so we get the encrypted hiera data packages as required.
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules -e 'include first'

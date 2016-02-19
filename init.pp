@@ -9,7 +9,7 @@ class { "first":
 include nginx
 include munin
 include python
-#include latex
+include cv
 include launchcalendar
 include ntp
 include utils
