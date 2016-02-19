@@ -28,3 +28,8 @@ cd /etc/git_puppet
 eyaml createkeys
 gpg -c --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-count 65011712 .keys/private_key.pkcs7.pem
 ```
+
+# Commands to encrypt sensitive files
+```shell
+gpg -c --passphrase-fd 0 --yes --symmetric --cipher-algo AES256 --digest-algo SHA512 FILE_IN_QUESTION < /etc/git_puppet/keys/private_key.pkcs7.pem 
+```
