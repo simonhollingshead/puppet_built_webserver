@@ -12,9 +12,12 @@ pushd /tmp; wget -O puppet.deb https://apt.puppetlabs.com/puppetlabs-release-pc1
 apt-get update; apt-get --yes --force-yes install puppet-agent git;
 
 # Check out git, install the one dependency that puppet can't manage, and decrypt the private key.
-git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/git_puppet; /opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module; gpg /etc/git_puppet/keys/private_*.gpg; for f in modules/latex/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys/private_key.pkcs7.pem ; done
+git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/git_puppet; /opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module; gpg /etc/git_puppet/keys/private_*.gpg;
 
 cd /etc/git_puppet
+
+# Decrypt any commercial files that I cannot place on github unencrypted.
+for f in modules/latex/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys/private_key.pkcs7.pem ; done
 
 # Apply first, on its own, so we get the encrypted hiera data packages as required.
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules -e 'include first'
