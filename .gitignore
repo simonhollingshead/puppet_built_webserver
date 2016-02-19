@@ -1,2 +1,4 @@
 private_key.pkcs7.pem
 *.swp
+modules/latex/files/helveticaneue/*.ttf
+modules/latex/files/helveticaneue/*.otf
