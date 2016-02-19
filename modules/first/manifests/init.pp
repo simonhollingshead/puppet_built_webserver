@@ -21,6 +21,14 @@ class first {
         user => root,
         refreshonly => true
     }
+	
+	file { "/etc/dpkg/dpkg.cfg.d/01_nodoc":
+		ensure => file,
+		owner => root,
+		group => root,
+		mode => "0644",
+		source => "puppet:///modules/first/dpkg_nodoc_conf"
+	}
     
     package { "hiera-eyaml":
 	    ensure => present,
