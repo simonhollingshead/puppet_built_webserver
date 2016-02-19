@@ -10,7 +10,7 @@ class domainwatch {
 	nginx::new_subdomain{ "domainwatch": }
 		
     exec { "domainwatch-composer":
-        user => root,
+        user => www-data,
         environment => ["HOME=/root"],
         command => "/usr/local/bin/composer install",
         cwd => "/srv/www/domainwatch",
