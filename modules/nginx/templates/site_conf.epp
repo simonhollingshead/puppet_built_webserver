@@ -1,13 +1,22 @@
+<% if $redirects != [] { -%>
+map $uri $redirected_uri {
+<% $redirects.each |$k| {-%>
+	~^/<%= $k %>;
+<% } -%>
+}
+
+<% } -%> 
 server {
 	listen 80<% if $subdomain == 'default' { %> default_server<% } %>;
 	listen [::]:80<% if $subdomain == 'default' { %> default_server ipv6only=on<% } %>;
 	root /srv/www/<%= $subdomain %>;
 	index index.php index.htm;
 	
-	<% if $subdomain != 'default' { %>server_name <%= $subdomain %>.*;<% } %>
-    	
+	<%- if $subdomain != 'default' { %>	server_name <%= $subdomain %>.*;
+
+	<%- } -%>
 	location ~ \.php$ {
-		try_files $uri =404;
+		try_files $uri @redirect_map;
 		include /etc/nginx/fastcgi_params;
 		fastcgi_pass unix:/var/run/php-fastcgi/php-fastcgi.sock;
 		fastcgi_index index.php;
@@ -15,6 +24,13 @@ server {
 	}
     	
 	location / {
-		try_files $uri $uri/ =404;
+		try_files $uri $uri/ @redirect_map;
+	}
+	
+	location @redirect_map {
+		if ($redirected_uri) {
+			return 301 $redirected_uri;
+		}
+		return 404;
 	}
 }

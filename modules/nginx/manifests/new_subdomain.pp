@@ -1,4 +1,4 @@
-define nginx::new_subdomain ($subdomain = $title, $module = "/") {
+define nginx::new_subdomain ($subdomain = $title, $module = "/", $redirects = []) {
 	$modulename = $module ? {
 		"/" => $subdomain,
 		default => $module
@@ -21,7 +21,7 @@ define nginx::new_subdomain ($subdomain = $title, $module = "/") {
 		group => root,
 		require => Package["nginx"],
 		notify => Exec["reload-nginx"],
-		content => epp('nginx/site_conf', {'subdomain' => $subdomain})
+		content => epp('nginx/site_conf', {'subdomain' => $subdomain, 'redirects' => $redirects})
 	}
 	
 	file { "/etc/nginx/sites-enabled/$subdomain":

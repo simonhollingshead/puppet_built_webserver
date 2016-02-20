@@ -1,4 +1,4 @@
-class cv {
+class cv ($nginx_redirects) {
     package { ["texlive-xetex","latex-xcolor","texlive-math-extra","texlive-latex-extra"]:
         ensure => present
     }
@@ -14,7 +14,9 @@ class cv {
 		ignore => ["*.gpg",".gitignore"]
 	}
 	
-	nginx::new_subdomain{ "cv": }
+	nginx::new_subdomain{ "cv":
+		redirects => $nginx_redirects
+	}
 	
 	file { "/opt/cv/":
 		owner => www-data,
