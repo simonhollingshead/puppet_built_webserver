@@ -7,7 +7,7 @@ class launchcalendar {
 	
 	file { "/var/log/launchcalendar":
 		ensure => directory,
-		mode => "0664",
+		mode => "0644",
 		owner => www-data,
 		group => www-data
 	}
@@ -18,7 +18,7 @@ class launchcalendar {
 		content => "",
 		owner => "www-data",
 		group => "www-data",
-		mode => "0664",
+		mode => "0644",
 		require => File["/var/log/launchcalendar"]
 	}
 	
