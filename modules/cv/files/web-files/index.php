@@ -24,7 +24,7 @@ $mydomain = implode(".",$domain);
 </span></i><br />Curriculum Vitae</div>
 		<hr class="separator"/>
 <div class="runner-text"><a href="cv_bw.pdf"><i class="fa fa-file-pdf-o"></i><span class="nolink">&nbsp;</span>View CV</a></div>
-<div class="mini-text">(last update: <?php echo date('j<\s\up>S</\s\up> \of F, Y',filemtime("cv_bw.pdf")); ?>)</div>
+<div class="mini-text">(last update: <span class="hidden-xs"><?php $filemtime=filemtime("cv_bw.pdf"); echo date('j<\s\up>S</\s\up> \of F, Y',$filemtime); ?></span><span class="visible-xs-inline"><?php echo date('j<\s\up>S</\s\up> M \'y',$filemtime)?></span>)</div>
 		<hr class="separator" />
 		<div class="runner-text"><a href="./grades.htm"><i class="fa fa-pencil"></i><span class="nolink">&nbsp;</span>Full Examination Results</a></div>
 		&nbsp;
