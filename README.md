@@ -15,7 +15,7 @@ apt-get update; apt-get --yes --force-yes install puppet-agent git;
 # The puppet_module module doesn't seem to be able to install apt, so do so separately.
 git clone https://github.com/simonhollingshead/puppet_built_webserver.git /etc/git_puppet; /opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module; /opt/puppetlabs/puppet/bin/puppet module install puppetlabs/apt; gpg /etc/git_puppet/keys/private_*.gpg;
 
-cd /etc/git_puppet
+cd /etc/git_puppet; git remote set-url origin git@github.com:simonhollingshead/puppet_built_webserver.git
 
 # Decrypt any commercial files that I cannot place on github unencrypted.
 for f in modules/cv/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys/private_key.pkcs7.pem ; done
