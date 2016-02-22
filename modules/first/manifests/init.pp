@@ -35,8 +35,12 @@ class first {
         provider => puppet_gem
     }
     
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','puppetlabs/nodejs']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
+    }
+    
+    class { "nodejs":
+	require => [Module['puppetlabs/apt'],Module['puppetlabs/nodejs']]
     }
 }

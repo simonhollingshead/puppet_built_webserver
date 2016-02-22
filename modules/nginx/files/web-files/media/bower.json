@@ -1,0 +1,11 @@
+{
+  "name": "simonhollingshead",
+  "description": "The external dependencies of the simonhollingshead website.",
+  "authors": ["Simon Hollingshead <me@simonhollingshead.com>"],
+  "dependencies": {
+    "jquery": "~2.2",
+    "fontawesome": "~4.5",
+    "bootstrap": "~3.3"
+  },
+  "private": true
+}

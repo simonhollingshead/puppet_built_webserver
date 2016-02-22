@@ -1,4 +1,9 @@
 class nginx {
+    package { 'bower':
+        ensure   => 'present',
+        provider => 'npm',
+    }
+    
     package { "apache2":
         ensure => absent
     }
@@ -35,6 +40,32 @@ class nginx {
         owner => www-data,
         group => www-data
     }
+
+    file { "/var/www":
+	ensure => directory,
+        mode => "0775",
+        owner => www-data,
+        group => www-data
+    }
+
+	exec { "bower-install-media":
+		environment => ["HOME=/var/www"],
+		command => "/usr/local/bin/bower install && /usr/local/bin/bower update",
+		cwd => "/srv/www/default/media",
+		user => www-data,
+		group => www-data,
+		require => [File["/srv/www/default"],File["/var/www"]]
+	}
+	
+	#exec { "bower-show-updates":
+	#	environment => ["HOME=/var/www"].
+	#	command => "/usr/local/bin/bower list",
+	#	cwd => "/srv/www/default/media",
+	#	user => www-data,
+	#	group => www-data,
+	#	require => Exec["bower-install-media"],
+	#	logoutput => true
+	#}
     
     file { "/etc/init.d/php-fastcgi":
         mode => "0755",
@@ -48,7 +79,7 @@ class nginx {
     service { "php-fastcgi":
         ensure => running,
         require => [Package["php5-cgi"],File["/etc/init.d/php-fastcgi"],Package["fcgiwrap"]],
-	    enable => true,
+	enable => true,
         hasstatus => true
     }
    
@@ -58,20 +89,20 @@ class nginx {
  
     file { "/srv/www/default/media/bootstrap":
         ensure => 'link',
-        target => '/srv/www/default/media/bootstrap-3.3.6',
-        require => File["/srv/www/default"]
+        target => '/srv/www/default/media/bower_components/bootstrap/dist',
+        require => Exec["bower-install-media"]
     }
     
-    file { "/srv/www/default/media/jquery.min.js":
+    file { "/srv/www/default/media/jquery":
         ensure => 'link',
-        target => '/srv/www/default/media/jquery-2.2.0.min.js',
-        require => File["/srv/www/default"]
+        target => '/srv/www/default/media/bower_components/jquery/dist',
+        require => Exec["bower-install-media"]
     }
     
     file { "/srv/www/default/media/font-awesome":
         ensure => 'link',
-        target => '/srv/www/default/media/font-awesome-4.5.0',
-        require => File["/srv/www/default"]
+        target => '/srv/www/default/media/bower_components/fontawesome',
+        require => Exec["bower-install-media"]
     }
     
     exec {
