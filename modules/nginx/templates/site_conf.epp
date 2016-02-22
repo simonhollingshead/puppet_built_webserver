@@ -1,11 +1,9 @@
-<% if $redirects != [] { -%>
 map $uri $redirected_uri {
 <% $redirects.each |$k| {-%>
 	~^/<%= $k %>;
 <% } -%>
 }
 
-<% } -%> 
 server {
 	listen 80<% if $subdomain == 'default' { %> default_server<% } %>;
 	listen [::]:80<% if $subdomain == 'default' { %> default_server ipv6only=on<% } %>;

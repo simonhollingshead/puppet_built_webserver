@@ -1,9 +1,17 @@
 stage { 'first':
-  before => Stage['main'],
+  before => Stage['second']
+}
+
+stage { 'second':
+  before => Stage['main']
 }
 
 class { "first":
     stage => first
+}
+
+class { "second":
+    stage => second
 }
 
 include nginx

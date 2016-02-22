@@ -39,8 +39,4 @@ class first {
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }
-    
-    class { "nodejs":
-	require => [Module['puppetlabs/apt'],Module['puppetlabs/nodejs']]
-    }
 }

@@ -23,6 +23,9 @@ for f in modules/cv/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <keys
 # Apply first, on its own, so we get the encrypted hiera data packages as required.
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules -e 'include first'
 
+# Apply second, on its own, so the npm package provider exists.
+/opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules -e 'include second'
+
 # Run the entire set of manifests.
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath /etc/git_puppet/modules:/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp
 ```
