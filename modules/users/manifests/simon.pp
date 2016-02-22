@@ -22,6 +22,22 @@ class users::simon ($password,$github_key) {
 		content => "$github_key",
 		require => File["/home/simon/.ssh"]
 	}
+	
+	file { "/root/.ssh":
+		ensure => directory,
+		mode => "0700",
+		owner => root,
+		group => root,
+	}
+	
+	file { "/root/.ssh/github_rsa":
+		ensure => file,
+		mode => "0600",
+		owner => root,
+		group => root,
+		content => "$github_key",
+		require => File["/root/.ssh"]
+	}
 
     ssh_authorized_key { "simon@putty":
         user => 'simon',
