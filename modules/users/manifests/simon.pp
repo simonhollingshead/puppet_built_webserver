@@ -30,7 +30,7 @@ class users::simon ($password,$github_key) {
 		group => root,
 	}
 	
-	file { "/root/.ssh/github_rsa":
+	file { "/root/.ssh/id_rsa":
 		ensure => file,
 		mode => "0600",
 		owner => root,
