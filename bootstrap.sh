@@ -29,8 +29,8 @@ printf "%s%s\n" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Installing prerequisite packages."
 printf "%s%s\n" "${FIFTY}" "${NONE}"
 
-apt-get update
-apt-get --yes --force-yes install puppet-agent git
+apt-get update  < "/dev/null"
+apt-get --yes --force-yes install puppet-agent git < "/dev/null"
 
 printf "\n"
 printf "\n"
