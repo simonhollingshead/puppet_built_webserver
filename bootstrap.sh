@@ -58,7 +58,10 @@ printf "* %s\n" "Decrypting private files."
 printf "%s%s\n" "${FIFTY}" "${NONE}"
 
 gpg "${INSTALL_DST}"/keys/private_*.gpg
-for f in "${INSTALL_DST}"/modules/cv/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <"${INSTALL_DST}/keys/private_key.pkcs7.pem" ; done
+for f in "${INSTALL_DST}"/modules/cv/files/helveticaneue/*
+do
+   gpg --passphrase-fd 0 "$f" <"${INSTALL_DST}/keys/private_key.pkcs7.pem"
+done
 
 printf "\n"
 printf "\n"
