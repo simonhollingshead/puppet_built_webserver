@@ -6,13 +6,10 @@ FIFTY="**************************************************\n"
 DISTRO="trusty"
 INSTALL_DST="/etc/git_puppet"
 
-printf "\n"
-printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
-printf "* %s\n" "Dropping to root user."
-printf "%s%s" "${FIFTY}" "${NONE}"
-
-sudo -i
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root." 1>&2
+   exit 1
+fi
 
 printf "\n"
 printf "\n"
