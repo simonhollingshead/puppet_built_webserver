@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ORANGE='\033[0;33m'
-NONE='\033[0m'
+YELLOW=$(tput setaf 3)
+NONE=$(tput sgr0)
 FIFTY="**************************************************\n"
 DISTRO="trusty"
 INSTALL_DST="/etc/git_puppet"
@@ -13,7 +13,7 @@ fi
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Adding puppet repository."
 printf "%s%s" "${FIFTY}" "${NONE}"
 
@@ -25,7 +25,7 @@ popd
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Installing prerequisite packages."
 printf "%s%s" "${FIFTY}" "${NONE}"
 
@@ -34,7 +34,7 @@ apt-get --yes --force-yes install puppet-agent git
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Cloning GitHub repository."
 printf "%s%s" "${FIFTY}" "${NONE}"
 
@@ -45,7 +45,7 @@ popd
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Installing prerequisite puppet modules."
 printf "%s%s" "${FIFTY}" "${NONE}"
 /opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module
@@ -53,7 +53,7 @@ printf "%s%s" "${FIFTY}" "${NONE}"
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Decrypting private files."
 printf "%s%s" "${FIFTY}" "${NONE}"
 
@@ -62,7 +62,7 @@ for f in "${INSTALL_DST}"/modules/cv/files/helveticaneue/*; do gpg --passphrase-
 
 printf "\n"
 printf "\n"
-printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "%s%s" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Performing first puppet run."
 printf "%s%s" "${FIFTY}" "${NONE}"
 
