@@ -8,17 +8,17 @@ INSTALL_DST="/etc/git_puppet"
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Dropping to root user.\n"
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Dropping to root user."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
 sudo -i
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Adding puppet repository."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Adding puppet repository."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
 pushd /tmp
 wget -O puppet.deb "https://apt.puppetlabs.com/puppetlabs-release-pc1-${DISTRO}.deb"
@@ -28,18 +28,18 @@ popd
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Installing prerequisites."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Installing prerequisite packages."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
 apt-get update
 apt-get --yes --force-yes install puppet-agent git
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Cloning GitHub repository."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Cloning GitHub repository."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
 git clone https://github.com/simonhollingshead/puppet_built_webserver.git "${INSTALL_DST}"
 pushd "${INSTALL_DST}"
@@ -48,26 +48,26 @@ popd
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Installing manifest prerequisites."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Installing prerequisite puppet modules."
+printf "%s%s" "${FIFTY}" "${NONE}"
 /opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module
 /opt/puppetlabs/puppet/bin/puppet module install puppetlabs/apt
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Decrypting secured files."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Decrypting private files."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
-gpg "${INSTALL_DST}/keys/private_*.gpg"
-for f in "${INSTALL_DST}/modules/cv/files/helveticaneue/*"; do gpg --passphrase-fd 0 ./"$f" <"${INSTALL_DST}/keys/private_key.pkcs7.pem" ; done
+gpg "${INSTALL_DST}"/keys/private_*.gpg
+for f in "${INSTALL_DST}"/modules/cv/files/helveticaneue/*; do gpg --passphrase-fd 0 ./"$f" <"${INSTALL_DST}/keys/private_key.pkcs7.pem" ; done
 
 printf "\n"
 printf "\n"
-printf "${FIFTY}"
-printf "* Performing first puppet run."
-printf "${FIFTY}"
+printf "%s%s" "${ORANGE}" "${FIFTY}"
+printf "* %s\n" "Performing first puppet run."
+printf "%s%s" "${FIFTY}" "${NONE}"
 
 /opt/puppetlabs/puppet/bin/puppet apply --modulepath "${INSTALL_DST}/modules":/etc/puppetlabs/code/environments/production/modules -e 'include first'
 
