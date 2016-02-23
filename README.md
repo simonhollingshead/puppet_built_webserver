@@ -4,7 +4,7 @@ The website where I commit all the puppet files that provision me a web server.
 # Command to use to provision
 ```shell
 sudo -i
-https://raw.githubusercontent.com/simonhollingshead/puppet_built_webserver/master/bootstrap.sh | bash
+curl -sfL https://raw.githubusercontent.com/simonhollingshead/puppet_built_webserver/master/bootstrap.sh | bash
 ```
 
 # Commands to generate a hiera private key
