@@ -17,7 +17,7 @@ class { "second":
 include nginx
 include munin
 include python
-include cv
+#include cv
 include launchcalendar
 include ntp
 include utils
