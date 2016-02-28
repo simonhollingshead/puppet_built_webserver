@@ -1,22 +1,22 @@
 class first {
-    file { "/opt/flags":
-        ensure => directory
-    }
+    #file { "/opt/flags":
+    #    ensure => directory
+    #}
     
-    exec { "add-universe":
-        command => "/usr/bin/add-apt-repository \"deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse\"",
-        user => root,
-        creates => "/opt/flags/universe-added",
-        notify => Exec["apt-update"],
-        before => File["/opt/flags/universe-added"]
-    }
+    #exec { "add-universe":
+    #    command => "/usr/bin/add-apt-repository \"deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse\"",
+    #    user => root,
+    #    creates => "/opt/flags/universe-added",
+    #    notify => Exec["refresh-apt"],
+    #    before => File["/opt/flags/universe-added"]
+    #}
     
-    file { "/opt/flags/universe-added":
-        ensure => file,
-        require => File["/opt/flags"]
-    }
+    #file { "/opt/flags/universe-added":
+    #    ensure => file,
+    #    require => File["/opt/flags"]
+    #}
     
-    exec { "apt-update":
+    exec { "refresh-apt":
         command => "/usr/bin/apt-get update",
         user => root,
         refreshonly => true
@@ -35,7 +35,7 @@ class first {
         provider => puppet_gem
     }
     
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','puppetlabs/nodejs']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','puppetlabs/nodejs','elasticsearch/elasticsearch','puppetlabs/java']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }

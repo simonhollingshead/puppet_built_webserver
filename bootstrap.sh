@@ -52,6 +52,7 @@ then
 	printf "%s%s\n" "${FIFTY}" "${NONE}"
 	/opt/puppetlabs/puppet/bin/puppet module install dowlingw/puppet_module
 	/opt/puppetlabs/puppet/bin/puppet module install puppetlabs/apt
+	/opt/puppetlabs/puppet/bin/puppet module install puppetlabs/java
 	
 	printf "\n"
 	printf "\n"

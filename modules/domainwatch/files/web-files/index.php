@@ -34,9 +34,10 @@ $mydomain = implode(".",$domain);
 <?php if(isset($_POST["domain"])) { ?>
 		<div class="alert alert-danger">The domain was not considered valid.  Please try again.</div>
 <?php } ?>
-		<form id="domainInput" class="form-horizontal" method="post">
-    			<div class="form-group">
-				<input type="text" class="form-control" style="border: 0px solid #000000; border-bottom-width: 1px; background-color: transparent; box-shadow: none; -webkit-box-shadow: none;" placeholder="Enter a domain here and hit enter." name="domain"<?php if(isset($_POST["domain"])){echo ' value="'.htmlspecialchars($_POST['domain']).'"';}?>/>
+		<form id="domainInput" method="post">
+			<div class="container-fluid">
+			<div class="col-xs-12 col-sm-10"><input type="text" class="form-control" style="border: 0px solid #000000; border-bottom-width: 1px; background-color: transparent; box-shadow: none; -webkit-box-shadow: none;" placeholder="Enter a domain ." name="domain"<?php if(isset($_POST["domain"])){echo ' value="'.htmlspecialchars($_POST['domain']).'"';}?>/></div>
+			<div class="col-xs-6 col-xs-offset-3 col-sm-2 col-sm-offset-0"><button type="submit" class="btn btn-default">Go <i class="fa fa-caret-right"></i></button></div>
 			</div>
 		</form>
 		</div>
