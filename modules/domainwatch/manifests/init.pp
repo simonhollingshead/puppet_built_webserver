@@ -33,7 +33,7 @@ class domainwatch {
         require => Package["ruby2.0"]
     }
     
-    package { "bunny":
+    package { ["bunny","whois"]:
         ensure => installed,
         provider => gem,
         require => File["/usr/bin/gem"]
