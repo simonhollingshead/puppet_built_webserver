@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>About Puppet</title>
+
+        <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/media/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/media/simonhollingshead.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="leader-text text-center"><a href="/"><i class="fa fa-chevron-left"></i><span class="nolink">&nbsp;</span>Puppet</a> &middot; About</div>
+        <hr class="text-header-separator" />
+<div class="container-fluid">
+<div class="row">    
+   <div class="col-xs-10 col-xs-offset-1 text-justify text-body">
+	 <p>My entire web server now gets deployed through <a href="https://puppetlabs.com/" target="_blank">Puppet</a>.  Puppet is a tool for declaring the state you expect a web server to be in, which then determines for itself the method of making the given requirements true.  For example, it is possible to state that you expect a package to be installed without specifying which package manager your distribution uses, or that a service needs to be running without specifying which service management tool is used.  I began learning the benefits of this tool during my job at BAE Systems, and realised the utility of it for managing VPSes - no longer would I fear not being able to purge my machine and start over - all important configuration can be redeployed in the matter of a few minutes!</p>
+	<p>All of the work that I've put into this can be found <a href="https://github.com/simonhollingshead/puppet_built_webserver" target="_blank">on GitHub</a>.  This was a conscious decision.  I've got nothing to hide when it comes to system configuration, and I'm more than willing to be told that I'm doing it wrong, or to help out others by allowing them to see what configuration I'm using for parts of this.  I also firmly believe that this part of my website, the services running on it and the files being served by it, has no proprietary value to me, so I might as well make it open source like this!</p>
+	<p>Through the use of <a href="https://github.com/TomPoulton/hiera-eyaml" target="_blank">hiera-eyaml</a>, I am still able to keep a few things private.  As an example, there are encrypted variants of passwords published in GitHub, and encrypted copies of files that are proprietary and would otherwise not be allowed to be stored in GitHub.  The fact I can do this makes puppet very powerful and still very open.  Another person could come, use the bootstrapper to generate their own copy of my server, and simply replace all the passwords with ones of their choice.</p>
+	<p>My deployment process doesn't use a puppet master or any trust model, just a 'puppet apply' command from the machine that downloads the puppet files.  This is not a standard way of doing an industry deployment, but for my small scale case, it is more than satisfactory.  The #puppet IRC channel on Freenode has been really great at helping me out, and if you're ever stuck understanding what to do, I'd advise dropping in there to ask them a question.</p>
+        </div></div></div>
+        <hr />
+    </body>
+</html>

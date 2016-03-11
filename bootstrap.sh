@@ -84,4 +84,4 @@ printf "%s%s\n" "${YELLOW}" "${FIFTY}"
 printf "* %s\n" "Running puppet manifest."
 printf "%s%s\n" "${FIFTY}" "${NONE}"
 
-/opt/puppetlabs/puppet/bin/puppet apply --modulepath "${INSTALL_DST}/modules":/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml /etc/git_puppet/init.pp
+/opt/puppetlabs/puppet/bin/puppet apply --modulepath "${INSTALL_DST}/modules":/etc/puppetlabs/code/environments/production/modules --hiera_config /etc/git_puppet/hiera.yaml --graph /etc/git_puppet/init.pp
