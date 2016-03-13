@@ -25,4 +25,6 @@ hr.text-header-separator{margin-top:0}
         .runner-text{font-size:2.1875em}
         .mini-text{font-size:1.875em}
         hr.separator{width:30em}
+	.dl-horizontal dt{width:225px !important}
+	.dl-horizontal dd{margin-left:245px !important}
 }
