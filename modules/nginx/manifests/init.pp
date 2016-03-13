@@ -55,7 +55,7 @@ class nginx {
 		cwd => "/srv/www/default/media",
 		user => www-data,
 		group => www-data,
-		require => [File["/srv/www/default"],File["/var/www"]]
+		require => [File["/srv/www/default"],File["/var/www"],Package["bower"]]
 	}
 	
 	#exec { "bower-show-updates":
