@@ -2,6 +2,7 @@ class nginx {
     package { 'bower':
         ensure   => 'present',
         provider => 'npm',
+        require => File["/usr/bin/node"]
     }
     
     package { "apache2":
