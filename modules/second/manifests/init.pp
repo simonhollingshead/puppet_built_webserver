@@ -6,5 +6,7 @@ class second {
 	    config => { 'cluster.name' => 'domainwatch' }
 	}
 	
-	class { 'unattended_upgrades': }
+	class { 'unattended_upgrades': 
+		random_sleep => 100
+	}
 }
