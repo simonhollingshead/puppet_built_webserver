@@ -2,12 +2,6 @@ class first {
     #file { "/opt/flags":
     #    ensure => directory
     #}
-    
-    exec { "refresh-apt":
-        command => "/usr/bin/apt-get update",
-        user => root,
-        refreshonly => true
-    }
 	
 	file { "/etc/dpkg/dpkg.cfg.d/01_nodoc":
 		ensure => file,
@@ -32,7 +26,7 @@ class first {
         require => Package["npm"]
     }
  
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java','puppet/unattended_upgrades']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }

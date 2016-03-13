@@ -5,4 +5,6 @@ class second {
             repo_version => '2.x',
 	    config => { 'cluster.name' => 'domainwatch' }
 	}
+	
+	class { 'unattended_upgrades': }
 }
