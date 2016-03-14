@@ -23,4 +23,11 @@ class coreservices {
 		},
 		require => [Package["ssh"],User["simon"]]
 	}
+	
+	firewall { "022 allow access to ssh":
+		proto => "tcp",
+		dport => "ssh",
+		action => "accept",
+		require => Class["ssh"]
+	}
 }

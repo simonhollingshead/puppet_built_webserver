@@ -14,6 +14,7 @@ class { "second":
     stage => second
 }
 
+include firewall_rules
 include nginx
 include munin
 include python

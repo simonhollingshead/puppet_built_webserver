@@ -9,6 +9,13 @@ class ntp {
         notify => Exec["force-ntp-update"]
     }
     
+    firewall { "123 allow access to ntp":
+        proto => "udp",
+        dport => "ntp",
+        action => "accept",
+        require => Service["ntp"]
+    }
+    
     exec { "force-ntp-update":
         command => "/usr/sbin/ntpd -gq",
         refreshonly => true,

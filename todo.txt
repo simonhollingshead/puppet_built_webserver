@@ -1,3 +1,4 @@
+Apply firewall rules to IPv6 as well
 Weechat
 Mail server
 Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet

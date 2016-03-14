@@ -19,6 +19,13 @@ class nginx {
         require => Package["nginx"]
     }
     
+    firewall { "080 allow access to webserver":
+        proto => "tcp",
+        dport => "http",
+        action => accept,
+        require => Service["nginx"]
+    }
+    
     package { "fcgiwrap":
         ensure => present,
         require => Service["nginx"]
