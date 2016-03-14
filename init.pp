@@ -25,3 +25,4 @@ include users::simon
 include coreservices
 #include domainwatch
 include puppet
+include postgres
