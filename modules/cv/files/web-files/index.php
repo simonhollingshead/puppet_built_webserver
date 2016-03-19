@@ -19,7 +19,7 @@ $mydomain = implode(".",$domain);
 <div class="verticalcenter">
 	<div class="text-center col-xs-10 col-xs-offset-1">
 		<div id="subdomain-leader" class="leader-text"><span class="fa-stack fa-1x"><i class="fa fa-file-o fa-stack-2x"></i>
-<i class="fa fa-user fa-stack-1x" style="margin-top:40%;margin-left:40%;text-shadow:-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff"></i>
+<i class="fa fa-user fa-stack-1x" style="margin-top:40%;margin-left:40%;text-shadow:-2px -2px 0 #f8f8f8,2px -2px 0 #f8f8f8,-2px 2px 0 #f8f8f8,2px 2px 0 #f8f8f8"></i>
 <strong class="fa-stack-1x" style="font-size:0.9em; margin-top:9%;margin-left:0%">CV</strong>
 </span><br />Curriculum Vitae</div>
 		<hr class="separator"/>
