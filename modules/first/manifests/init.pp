@@ -26,8 +26,12 @@ class first {
         require => Package["npm"]
     }
  
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java','puppet/unattended_upgrades','puppetlabs/postgresql','puppetlabs/firewall']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java','puppet/unattended_upgrades','puppetlabs/postgresql','puppetlabs/firewall','maestrodev/wget']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
+    }
+    
+    service { ["mcollective","pxp-agent","puppet"]:
+        enable => false
     }
 }
