@@ -13,5 +13,12 @@ class postgres ($db_admin_password) {
 		command => "/bin/tar -C /opt/ -xf /opt/flyway.tar.gz",
 		refreshonly => true,
 		subscribe => File["/opt/flyway.tar.gz"]
-	}	
+	}
+	
+	file { "/sql":
+		ensure => "directory",
+		mode => "0400",
+		owner => "root",
+		group => "root"
+	}
 }
