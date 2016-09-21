@@ -30,4 +30,9 @@ class coreservices {
 		action => "accept",
 		require => Class["ssh"]
 	}
+	
+	exec { "/usr/bin/timedatectl set-timezone UTC":
+		user => root,
+		onlyif => "/usr/bin/timedatectl | grep 'Time zone: UTC'; test $? -eq 1"
+	}
 }
