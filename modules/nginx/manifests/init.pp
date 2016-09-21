@@ -31,7 +31,7 @@ class nginx {
         require => Service["nginx"]
     }
     
-    package { "php5-cgi":
+    package { "php-cgi":
         ensure => present
     }
     
@@ -81,12 +81,12 @@ class nginx {
         group => root,
         ensure => present,
         source => "puppet:///modules/nginx/php-fastcgi",
-        require => [File["/var/run/php-fastcgi"],Package["php5-cgi"]]
+        require => [File["/var/run/php-fastcgi"],Package["php-cgi"]]
     }
     
     service { "php-fastcgi":
         ensure => running,
-        require => [Package["php5-cgi"],File["/etc/init.d/php-fastcgi"],Package["fcgiwrap"]],
+        require => [Package["php-cgi"],File["/etc/init.d/php-fastcgi"],Package["fcgiwrap"]],
 	enable => true,
         hasstatus => true
     }

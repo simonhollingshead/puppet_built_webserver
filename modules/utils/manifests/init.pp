@@ -1,5 +1,5 @@
 class utils {
-	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat","php5-cli","iotop"]:
+	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat","php-cli","iotop"]:
 		ensure => present
 	}
 	
@@ -7,7 +7,7 @@ class utils {
         command_name => 'composer',
         target_dir => '/usr/local/bin',
         auto_update => true,
-        require => Package["php5-cli"]
+        require => Package["php-cli"]
     }
 	
 	# TODO: Remove when no longer using Koding.

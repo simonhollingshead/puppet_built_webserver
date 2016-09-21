@@ -17,7 +17,7 @@ DAEMON=/usr/bin/spawn-fcgi
 SOCK=/var/run/php-fastcgi/php-fastcgi.sock
 PIDFILE=/var/run/php-fastcgi/php-fastcgi.pid
 CHILDREN=10
-PHPLOC=/usr/bin/php5-cgi
+PHPLOC=/usr/lib/cgi-bin/php
 DESC="PHP FCGI"
 
 start() {

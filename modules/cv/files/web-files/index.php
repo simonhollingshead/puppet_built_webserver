@@ -12,7 +12,7 @@
         <link href="/media/simonhollingshead.css" rel="stylesheet">
     </head>
 <body class="fullscreenbody"><?php
-$domain = split("\.",$_SERVER["HTTP_HOST"]);                                                                          
+$domain = explode("\.",$_SERVER["HTTP_HOST"]);                                                                          
 array_shift($domain);                                                                                                 
 $mydomain = implode(".",$domain);
 ?><div id="homediv" class="runner-text"><a href="http://<?=$mydomain?>/"><i class="fa fa-chevron-left fa-2x"></i><i class="fa fa-home fa-2x"></i></a></div>

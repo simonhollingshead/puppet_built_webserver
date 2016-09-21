@@ -26,7 +26,7 @@ class first {
         require => Package["npm"]
     }
  
-    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java','puppet/unattended_upgrades','puppetlabs/postgresql','puppetlabs/firewall','maestrodev/wget']:
+    module { ['acme/ohmyzsh','saz/sudo','saz/ssh','willdurand/composer','puppetlabs/apt','elasticsearch/elasticsearch','puppetlabs/java','puppet/unattended_upgrades','puppetlabs/postgresql','puppetlabs/firewall','puppetlabs/nodejs','maestrodev/wget']:
         ensure => present,
         modulepath => '/etc/puppetlabs/code/environments/production/modules'
     }

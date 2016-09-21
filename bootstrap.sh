@@ -3,7 +3,7 @@
 YELLOW=$(tput bold;tput setaf 3)
 NONE=$(tput sgr0)
 FIFTY="**************************************************"
-DISTRO="trusty"
+DISTRO="xenial"
 INSTALL_DST="/etc/git_puppet"
 
 if [[ $EUID -ne 0 ]]; then
