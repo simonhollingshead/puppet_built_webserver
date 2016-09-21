@@ -4,6 +4,5 @@ Mail server
 Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
 Automatic Podcast Generator
 Samba share mapping
-Force server timezone to UTC permanently
 
 Add open source licenses to all work
