@@ -25,7 +25,7 @@
 \usepackage{wasysym}
 \begin{document}
 
-\header{Simon}{Hollingshead}{BA Hons. (Cantab.)} % Your name and current job title/field
+\header{Simon }{Hollingshead}{BA Hons. (Cantab.)} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
 %	SIDEBAR SECTION
@@ -60,7 +60,6 @@ Kafka
 C++
 Go
 OCaml
-RabbitMQ
 \section{interests}
 Automation (DevOps)
 Big Data/Visualisations
@@ -71,6 +70,7 @@ CTF Competitions
 Behavioural Economics
 PC Building
 Scavenger Hunts
+Space
 Sushi
 Walking
 \end{aside}
@@ -123,18 +123,7 @@ A full academic history is provided at \href{http://cv.simonhollingshead.com/gra
 {BAE Systems Applied Intelligence, Guildford}
 {}
 {\emph{Software Engineer}, Commercial Solutions Enterprise Managed Security \\
-As a data scientist, I have been responsible for creating analytics identifying anomalous activity from within terabytes of data using Hadoop MapReduce and Hive.  Within the engineering team, I have developed components for projects for data storage using ElasticSearch and Kafka, for data acquisition using Ruby and Fluentd, and for report generation using JasperReports and Talend.  Where possible, I also produce utilities for the support team at the Security Operations Centre to increase efficiency and reduce delays in problem identification and issue resolution.
-
-~
-
-}
-%------------------------------------------------
-\entry
-{2010}
-{St James' School, Exeter}
-{}
-{\emph{After School Additional Mathematics Teacher} \\
-After completing the FSMQ the previous year with external tutoring, I returned to St James' School to teach the students the parts of the course which the lecturers were less familiar with.  This allowed me to experiment with methods of disseminating knowledge efficiently and reliably.
+As a data scientist, I have been responsible for creating analytics identifying anomalous activity from within terabytes of data using Hadoop MapReduce and Hive.  As a software Engineer team, I have worked with data storage technologies such as ElasticSearch, performed data acquisition using Ruby and Fluentd, and generated reports using JasperReports and Talend.  I proudly create utilities for the support teams at the Security Operations Centre to increase efficiency and reduce delays in problem identification and issue resolution.
 
 ~
 
@@ -145,7 +134,7 @@ After completing the FSMQ the previous year with external tutoring, I returned t
 {GlobalGamingHQ}
 {}
 {\emph{Site Development Manager} \\
-GlobalGamingHQ has run many websites and forums, but their most popular is RuneHQ, a RuneScape fansite with hundreds of thousands of hits per month.  Developing fast loading pages, intuitive layouts and responding to community feedback was incredibly important and gave me a great `jumping in at the deep end' introduction to large-scale web development.}
+GlobalGamingHQ's most popular website, RuneHQ, is a RuneScape fansite with hundreds of thousands of hits per month.  Developing fast loading pages, intuitive layouts and responding to community feedback was incredibly important and gave me a great `jumping in at the deep end' introduction to large-scale web development.}
 %------------------------------------------------
 \end{entrylist}
 
@@ -154,15 +143,18 @@ GlobalGamingHQ has run many websites and forums, but their most popular is RuneH
 %----------------------------------------------------------------------------------------
 
 \section{training}
-
 \begin{entrylist}
+\entry
+{Jul 2016}
+{Professional Scrum Developer {\normalfont by QA for Scrum.org}}
+{Scrum, PSD I certification}
+{}
 %------------------------------------------------
 \entry
 {Jan 2015}
 {HDP Developer: Java {\normalfont by QA for HortonWorks}}
-{London}
-{This four-day course trains participants on advanced methods of using Hadoop and MapReduce alongside other utilities such as Oozie, HBase, Pig and Hive.}
-%------------------------------------------------
+{Hadoop, MapReduce, HBase, Hive}
+{}
 \end{entrylist}
 \end{document}
 
