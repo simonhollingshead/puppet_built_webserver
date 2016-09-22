@@ -19,7 +19,7 @@ class cv ($nginx_redirects) {
 		redirects => $nginx_redirects
 	}
 	
-	file { "/opt/cv/":
+	file { "/opt/cv":
 		owner => www-data,
 		group => www-data,
 		ensure => directory,
