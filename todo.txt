@@ -4,5 +4,6 @@ Mail server
 Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
 Automatic Podcast Generator
 Samba share mapping
+Set up VPN
 
 Add open source licenses to all work
