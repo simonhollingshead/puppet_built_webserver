@@ -23,6 +23,15 @@ class users::simon ($password,$github_key) {
 		require => File["/home/simon/.ssh"]
 	}
 	
+	file { "/home/simon/.vimrc":
+		ensure => file,
+		mode => "0600",
+		owner => simon,
+		group => simon,
+		source => "puppet:///modules/users/simon.vimrc",
+		require => User["simon"]
+	}
+	
 	file { "/root/.ssh":
 		ensure => directory,
 		mode => "0700",
