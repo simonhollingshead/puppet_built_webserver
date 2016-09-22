@@ -1,5 +1,6 @@
 class cv ($nginx_redirects) {
-    package { ["texlive-xetex","latex-xcolor","texlive-math-extra","texlive-latex-extra"]:
+    # texlive-latex-recommended is to install xcolor, which is no longer a separate package.
+    package { ["texlive-xetex","texlive-latex-recommended","texlive-math-extra","texlive-latex-extra"]:
         ensure => present
     }
 	
@@ -62,6 +63,6 @@ class cv ($nginx_redirects) {
 		command => "/usr/bin/xelatex cv-inverted.tex && /usr/bin/xelatex cv-inverted.tex && /usr/bin/xelatex cv-inverted.tex && cp cv-inverted.pdf /srv/www/cv/cv.pdf && /usr/bin/xelatex cv-print.tex && /usr/bin/xelatex cv-print.tex && /usr/bin/xelatex cv-print.tex && cp cv-print.pdf /srv/www/cv/cv_bw.pdf && rm -f *.aux *.bcf *.log *.out *.run.xml",
 		user => www-data,
 		group => www-data,
-		require => [File["/opt/cv/cv-inverted.tex"],File["/opt/cv/cv-print.tex"],File["/opt/cv/friggeri-cv.cls"],Package["texlive-xetex"],Package["latex-xcolor"],Package["texlive-math-extra"],Package["texlive-latex-extra"],File["/usr/share/fonts/helveticaneue"],File["/srv/www/cv"]]
+		require => [File["/opt/cv/cv-inverted.tex"],File["/opt/cv/cv-print.tex"],File["/opt/cv/friggeri-cv.cls"],Package["texlive-xetex"],Package["texlive-latex-recommended"],Package["texlive-math-extra"],Package["texlive-latex-extra"],File["/usr/share/fonts/helveticaneue"],File["/srv/www/cv"]]
 	}
 }
