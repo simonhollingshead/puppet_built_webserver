@@ -8,35 +8,30 @@ class domainwatch {
 	}
 
 	nginx::new_subdomain{ "domainwatch": }
-		
+	
+	
+	# Composer installs the AMQP libraries, which require BCMATH and MBSTRING support.
+	
+	package { ["php-bcmath", "php-mbstring"]:
+		ensure => installed
+	}
+	
     exec { "domainwatch-composer":
         user => www-data,
         environment => ["HOME=/root"],
-        command => "/usr/local/bin/composer install",
+        command => "/usr/local/bin/composer update --no-dev",
         cwd => "/srv/www/domainwatch",
-        require => [Class["composer"],File["/srv/www/domainwatch"]]
+        require => [Class["composer"],File["/srv/www/domainwatch"], Package["php-bcmath"], Package["php-mbstring"]]
     }
     
-    package { "ruby2.0":
+    package { "ruby":
         ensure => installed
-    }
-    
-    file { "/usr/bin/ruby":
-        ensure => link,
-        target => "/usr/bin/ruby2.0",
-        require => Package["ruby2.0"]
-    }
-    
-    file { "/usr/bin/gem":
-        ensure => link,
-        target => "/usr/bin/gem2.0",
-        require => Package["ruby2.0"]
     }
     
     package { ["bunny","whois"]:
         ensure => installed,
         provider => gem,
-        require => File["/usr/bin/gem"]
+        require => Package["ruby"]
     }
 
     file { "/opt/domainwatch":
