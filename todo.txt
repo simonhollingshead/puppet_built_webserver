@@ -5,5 +5,6 @@ Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
 Automatic Podcast Generator
 Samba share mapping
 Set up VPN
+Extract composer updates into own class
 
 Add open source licenses to all work
