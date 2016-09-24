@@ -14,4 +14,4 @@ EOM
 esac
 
 echo -n "amt.value "
-curl -s "https://www.ratesetter.com/lend/provisionfund" | grep -Po "(?<=(hero-provision-amount)\">)([^<]+)" | tr -d '[£,]'
+curl -s "https://www.ratesetter.com/invest/everyday-account/protection" | grep -Po "(?<=(pf-balance)\">)([^<]+)" | tr -d "£,"
