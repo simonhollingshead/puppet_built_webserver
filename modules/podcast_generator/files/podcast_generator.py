@@ -3,8 +3,10 @@
 import argparse
 import datetime
 from feedgen.feed import FeedGenerator
+import hashlib
 import io
 import os
+import sys
 import subprocess
 
 class readable_dir(argparse.Action):
@@ -27,9 +29,21 @@ def typelookup(filename):
 	else:
 		return ""
 
+def getmd5(filename):
+	md5 = hashlib.md5()
+	with open(filename, 'rb') as f:
+		while True:
+			data = f.read(65536)
+			if not data:
+				break
+			md5.update(data)
+	return md5.hexdigest()
+
+
 def toseconds(timestring):
 	multiplier = [3600, 60, 1]
 	return sum([a*b for a,b in zip(multiplier, map(int,timestring.split(":")))])
+
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description="Generates a podcast XML file from a directory of media.")
@@ -60,7 +74,8 @@ if __name__ == "__main__":
 		popen = subprocess.Popen(["ffmpeg", "-i", os.path.join(args.input_directory, f), "-f", "null", "-"], stdout = subprocess.DEVNULL, stderr = subprocess.PIPE)
 		popen.wait()
 		answer = toseconds(popen.stderr.readlines()[-2].decode("utf-8").split(" ")[1].split("=")[1].split(".")[0])
-		fe.id(args.url+f)
+		#fe.id(args.url+f)
+		fe.id(getmd5(os.path.join(args.input_directory, f)))
 		fe.title(f)
 		fe.enclosure(args.url+f, str(answer), typelookup(f))
 		fe.pubdate(datetime.datetime.fromtimestamp(os.path.getmtime(os.path.join(args.input_directory, f))).replace(tzinfo=datetime.timezone.utc))
