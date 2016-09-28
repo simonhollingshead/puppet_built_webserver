@@ -15,6 +15,7 @@ def get_loan_name(t):
 if __name__ == "__main__":
     if not len(sys.argv) == 2:
         print("Accepts exactly one parameter - the filepath to an Assetz Capital CSV export.")
+        sys.exit(1)
     with open(sys.argv[1], 'rt') as csvfile:
         # Default to entries being for £0.00.
         loandict = defaultdict(float)
