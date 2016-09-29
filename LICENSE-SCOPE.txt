@@ -1,0 +1,5 @@
+The WTFPL encompasses all parts of this repository and codebase written by myself, Simon Hollingshead.  I do not make any claim as to the permissiveness or license terms of any components downloaded via Puppet from Puppet Forge, from the wget module, or packages loaded into the operating system through the package manager.
+
+For the avoidance of doubt, all puppet module code (files, templates and manifests) are covered by the WTFPL, exccept the following list:
+ - The latex file within 'cv' is built on a template downloaded from another party.  The license remains intact at the top of the file, and is CC BY-NC-SA v3.
+ - 'cv' contains GPG-encrypted copies of Helvetica Neue.  I own these fonts, and am not making them available as I am not providing the encryption key to any other person.  I do not know enough to state whether the encrypted files fall under WTFPL, but for the purposes of safety, let us assume these remain under the commercial license of the original copyright holders.
