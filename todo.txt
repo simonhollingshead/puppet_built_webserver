@@ -7,3 +7,4 @@ Samba share mapping
 Set up VPN
 Extract composer updates into own class
 Deploy app and web minis
+Finish off LetsEncrypt by default on all newly made domains.

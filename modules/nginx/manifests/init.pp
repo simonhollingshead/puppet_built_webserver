@@ -1,4 +1,4 @@
-class nginx {
+class nginx($letsencrypt_email) {
     package { 'bower':
         ensure   => 'present',
         provider => 'npm',
@@ -112,6 +112,10 @@ class nginx {
         target => '/srv/www/default/media/bower_components/fontawesome',
         require => Exec["bower-install-media"]
     }
+	
+	class { ::letsencrypt:
+		email => $letsencrypt_email,
+	}
     
     exec {
     "reload-nginx" :
