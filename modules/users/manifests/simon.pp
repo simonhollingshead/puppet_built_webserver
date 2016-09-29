@@ -32,6 +32,14 @@ class users::simon ($password,$github_key) {
 		require => User["simon"]
 	}
 	
+	file { "/home/simon/start_weechat":
+		ensure => file,
+		mode => "0755",
+		owner => simon,
+		group => simon,
+		source => "puppet:///modules/users/simon.start_weechat",
+		require => [User["simon"],Package["weechat"]]
+	}
 	file { "/root/.ssh":
 		ensure => directory,
 		mode => "0700",

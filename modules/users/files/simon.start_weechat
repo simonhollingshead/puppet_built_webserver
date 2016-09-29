@@ -1,0 +1,9 @@
+#!/bin/sh
+screen -wipe
+
+if screen -ls | egrep '^[[:space:]]+[^[:space:]]' | awk '{print $1}' | egrep '.irc$'
+then
+	screen -x irc
+else
+	screen -U -S irc -t weechat weechat
+fi
