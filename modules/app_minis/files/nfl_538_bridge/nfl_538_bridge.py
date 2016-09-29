@@ -28,7 +28,7 @@ def fix_inits(team_initials):
 if __name__ == '__main__':
     fivethirtyeight_html = gzip.decompress(
         urllib.request.urlopen("http://projects.fivethirtyeight.com/2016-nfl-predictions/").read())
-    soup_fivethirtyeight_html = BeautifulSoup(fivethirtyeight_html)
+    soup_fivethirtyeight_html = BeautifulSoup(fivethirtyeight_html, 'lxml')
     soup_fivethirtyeight_schedule_iterator = soup_fivethirtyeight_html.find("div", {"id": "schedule"}).children
     next(soup_fivethirtyeight_schedule_iterator)
     soup_fivethirtyeight_mobile_view = next(soup_fivethirtyeight_schedule_iterator).find_all("tr")
