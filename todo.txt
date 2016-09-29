@@ -7,5 +7,3 @@ Samba share mapping
 Set up VPN
 Extract composer updates into own class
 Deploy app and web minis
-
-Add open source licenses to all work
