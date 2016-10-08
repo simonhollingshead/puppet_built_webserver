@@ -4,7 +4,7 @@
   "authors": ["Simon Hollingshead <me@simonhollingshead.com>"],
   "dependencies": {
     "jquery": "~2.2",
-    "fontawesome": "~4.5",
+    "fontawesome": "~4",
     "bootstrap": "~3.3"
   },
   "private": true
