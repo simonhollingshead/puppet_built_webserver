@@ -1,5 +1,5 @@
 class utils {
-	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat","php-cli","iotop"]:
+	package { ["vim","lynx","elinks","git","gitk","mtr","nmon","htop","nethogs","patch","rsync","weechat","php-cli","iotop","screen"]:
 		ensure => present
 	}
 	
@@ -10,8 +10,12 @@ class utils {
         require => Package["php-cli"]
     }
 	
-	# TODO: Remove when no longer using Koding.
-	package { ["golang-go","golang-go-linux-amd64","golang-src","libgl1-mesa-dri","puppetserver"]:
-	    ensure => purged
+	file { "/usr/bin/start_weechat":
+		ensure => file,
+		mode => "0755",
+		owner => root,
+		group => root,
+		source => "puppet:///modules/utils/start_weechat",
+		require => [Package["weechat"],Package["screen"]]
 	}
 }
