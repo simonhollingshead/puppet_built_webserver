@@ -95,4 +95,8 @@ class munin {
         ensure => absent,
         notify => Exec["reload-munin"]
     }
+	
+	monit::add_monitor { "munin":
+		source => "puppet:///modules/munin/monit/munin.conf"
+	}
 }
