@@ -35,4 +35,9 @@ class coreservices {
 		user => root,
 		onlyif => "/usr/bin/timedatectl | grep 'Time zone: UTC'; test $? -eq 1"
 	}
+	
+	monit::add_monitor { "ssh":
+		source => "puppet:///modules/coreservices/monit/ssh.conf",
+		require => Package["ssh"]
+	}
 }

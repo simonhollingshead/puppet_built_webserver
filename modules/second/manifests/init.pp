@@ -9,4 +9,8 @@ class second {
 	class { 'unattended_upgrades': 
 		random_sleep => 100
 	}
+	
+	package { 'ureadahead':
+		ensure => present
+	}
 }

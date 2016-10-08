@@ -3,16 +3,20 @@ class users::simon ($password,$github_key) {
     	ensure => installed
     }
 
-    user { "simon":
+    @user { "simon":
         ensure => present,
         comment => "Simon Hollingshead",
         password => pw_hash($password, 'SHA-512', 'HhG9MFOeybJxPYx1W4fDv8VRSsZrbSCFIihOdp931Chd823BPbKnRYbaIDRayMD'),
         managehome => yes,
+	groups => ['simon'],
+	membership => minimum,
         home => "/home/simon",
         purge_ssh_keys => true,
         shell => "/usr/bin/zsh",
         require => Package["zsh"]
     }
+	
+	User <| title == simon |>
 
 	file { "/home/simon/.ssh/github_rsa":
 		ensure => file,

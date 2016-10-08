@@ -27,3 +27,4 @@ include coreservices
 include domainwatch
 include puppet
 include postgres
+include monit

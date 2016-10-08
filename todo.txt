@@ -8,5 +8,5 @@ Set up VPN
 Extract composer updates into own class
 Deploy app and web minis
 Finish off LetsEncrypt by default on all newly made domains.
-Move threshold alerting to Nagios, keep Munin only for charts, with no thresholding.
+Move threshold alerting to Monit, keep Munin only for charts, with no thresholding.
 Create 'update checker' script for Bower, flyway, composer, etc.
