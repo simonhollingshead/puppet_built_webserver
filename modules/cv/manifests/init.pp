@@ -65,4 +65,9 @@ class cv ($nginx_redirects) {
 		group => www-data,
 		require => [File["/opt/cv/cv-inverted.tex"],File["/opt/cv/cv-print.tex"],File["/opt/cv/friggeri-cv.cls"],Package["texlive-xetex"],Package["texlive-latex-recommended"],Package["texlive-math-extra"],Package["texlive-latex-extra"],File["/usr/share/fonts/helveticaneue"],File["/srv/www/cv"]]
 	}
+	
+	monit::add_monitor { "cv":
+		source => "puppet:///modules/cv/monit/cv.conf",
+		require => File["/srv/www/cv"]
+	}
 }

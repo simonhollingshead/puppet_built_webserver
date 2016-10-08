@@ -28,6 +28,15 @@ class monit {
 		source => "puppet:///modules/monit/monitrc"
 	}
 	
+	file { "/etc/monit/check_type.sh":
+		ensure => file,
+		mode => "0655",
+		owner => root,
+		group => root,
+		require => Package["monit"],
+		source => "puppet:///modules/monit/check_type.sh"
+	}
+	
 	firewall { "281 allow access to monit":
 		proto => "tcp",
 		dport => "2812",
