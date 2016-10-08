@@ -38,4 +38,9 @@ define nginx::new_subdomain ($subdomain = $title, $module = "/", $redirects = []
 			require => File["/srv/www/default"]
 		}
 	}
+	
+	monit::add_monitor { "$subdomain.nginx.internal":
+		use_template => true,
+		content => epp('nginx/monit_domain.conf.epp', {'subdomain' => $subdomain})
+	}
 }

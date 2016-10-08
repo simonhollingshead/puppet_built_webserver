@@ -1,0 +1,9 @@
+check host <%= $subdomain %>.nginx.internal with address <%= $subdomain %>.nginx.internal
+  group nginx
+  mode passive
+  if failed
+    port 80 protocol http
+    with request /
+    and content = "<html"
+    and timeout 10 seconds
+  then alert
