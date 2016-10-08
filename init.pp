@@ -28,3 +28,4 @@ include domainwatch
 include puppet
 include postgres
 include monit
+include app_minis

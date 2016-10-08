@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import gzip
 import urllib.request
 import xml.etree.ElementTree
