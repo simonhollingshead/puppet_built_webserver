@@ -4,7 +4,8 @@ class domainwatch {
 	}
 	
 	service { "rabbitmq-server":
-		ensure => running
+		ensure => running,
+		enable => true
 	}
 
 	nginx::new_subdomain{ "domainwatch": }
@@ -66,5 +67,10 @@ class domainwatch {
 			'cluster.routing.allocation.disk.threshold_enabled' => "false",
 			'discovery.zen.ping.multicast.enabled' => "false"
 		}
+	}
+	
+	monit::add_monitor { "domainwatch":
+		source => "puppet:///modules/domainwatch/monit/domainwatch.conf",
+		require => [Elasticsearch::Instance["es-01"], Package["rabbitmq-server"]]
 	}
 }

@@ -139,7 +139,7 @@
 ## enable SSL for the HTTP interface. 
 #
  set httpd port 2812 and
-     allow @monit
+     allow @wheel
      allow rouser:rouser read-only
 #
 ###############################################################################

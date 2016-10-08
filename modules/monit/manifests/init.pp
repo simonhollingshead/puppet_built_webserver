@@ -13,17 +13,12 @@ class monit {
 		ensure => present
 	}
 	
-	User <| title == simon |> {
-		groups +> "monit",
-		require => [Package["monit"],Group["monit"]]
-	}
-	
 	file { "/etc/monit/monitrc":
 		ensure => file,
 		mode => "0600",
 		owner => root,
 		group => root,
-		require => [Package["monit"],Group["monit"]],
+		require => Package["monit"],
 		notify => Service["monit"],
 		source => "puppet:///modules/monit/monitrc"
 	}

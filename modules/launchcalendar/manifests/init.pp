@@ -1,7 +1,7 @@
 class launchcalendar {
-	file { "/opt/launchcalendar.py":
+	file { "/opt/launchcalendar":
 		mode => "0555",
-		source => "puppet:///modules/launchcalendar/launchcalendar.py",
+		source => "puppet:///modules/launchcalendar/launchcalendar",
 		require => [Package["python3-icalendar"],Package["python3-bs4"],File["/srv/www/launchcalendar"]]
 	}
 	
@@ -25,10 +25,14 @@ class launchcalendar {
 	cron { "launchcalendar":
 		ensure => present,
 		user => www-data,
-		command => "/opt/launchcalendar.py > /var/log/launchcalendar/result.log",
+		command => "/opt/launchcalendar > /var/log/launchcalendar/result.log",
 		minute => 0,
-		require => [File["/opt/launchcalendar.py"],File["/var/log/launchcalendar"],File["/srv/www/launchcalendar"]]
+		require => [File["/opt/launchcalendar"],File["/var/log/launchcalendar"],File["/srv/www/launchcalendar"]]
 	}
 
 	nginx::new_subdomain{ "launchcalendar": }
+	
+	monit::add_monitor { "launchcalendar":
+		source => "puppet:///modules/launchcalendar/monit/launchcalendar.conf"
+	}
 }	

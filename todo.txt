@@ -10,3 +10,4 @@ Deploy app and web minis
 Finish off LetsEncrypt by default on all newly made domains.
 Move threshold alerting to Monit, keep Munin only for charts, with no thresholding.
 Create 'update checker' script for Bower, flyway, composer, etc.
+Make launch calendar better.
