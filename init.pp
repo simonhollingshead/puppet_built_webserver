@@ -22,6 +22,7 @@ include cv
 include launchcalendar
 include ntp
 include utils
+include users
 include users::simon
 include coreservices
 include domainwatch
