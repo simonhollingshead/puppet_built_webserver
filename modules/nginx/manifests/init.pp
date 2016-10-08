@@ -128,4 +128,9 @@ class nginx($letsencrypt_email) {
       command => "/usr/sbin/service nginx restart",
       require => Package["nginx"];
   }
+	
+	dnsmasq::conf { 'internal-subdomain-access':
+		ensure => present,
+		content => 'address=/.nginx.internal/127.0.0.1'
+	}
 }
