@@ -23,10 +23,14 @@ class postgres ($db_admin_password) {
 		require => File["/opt/flyway"]
 	}
 	
-	file { "/sql":
+	file { "/opt/flyway-content":
 		ensure => "directory",
 		mode => "0400",
 		owner => "root",
 		group => "root"
+	}
+	
+	monit::add_monitor { "postgres":
+		source => "puppet:///modules/postgres/monit/postgres.conf"
 	}
 }

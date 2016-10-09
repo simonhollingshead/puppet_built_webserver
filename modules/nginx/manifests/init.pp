@@ -133,4 +133,8 @@ class nginx($letsencrypt_email) {
 		ensure => present,
 		content => 'address=/.nginx.internal/127.0.0.1'
 	}
+	
+	monit::add_monitor { "nginx":
+		source => "puppet:///modules/nginx/monit/nginx.conf"
+	}
 }

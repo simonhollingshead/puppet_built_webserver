@@ -14,4 +14,8 @@ class puppet {
 		require => [File["/srv/www/puppet"],Package["graphviz"],File["/opt/puppetlabs/puppet/cache"]],
 		user => www-data
 	}
+	
+	monit::add_monitor { "puppet":
+		source => "puppet:///modules/puppet/monit/puppet.conf"
+	}
 }	

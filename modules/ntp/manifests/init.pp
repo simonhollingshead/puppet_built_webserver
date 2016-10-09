@@ -29,10 +29,21 @@ class ntp {
     }
 
     file { "/etc/ntp.conf":
-        ensure => present,
+        ensure => file,
         mode => "0644",
         source => "puppet:///modules/ntp/ntp.conf",
         require => Package["ntp"],
         notify => Exec["reload-ntp"]
     }
+	
+	file { "/etc/monit/ntp_est_error.sh":
+		ensure => file,
+		mode => "0755",
+		source => "puppet:///modules/ntp/monit/ntp_est_error.sh",
+		require => Package["monit"]
+	}
+	
+	monit::add_monitor { "ntp":
+		source => "puppet:///modules/ntp/monit/ntp.conf"
+	}
 }

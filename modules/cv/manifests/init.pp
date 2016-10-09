@@ -67,7 +67,6 @@ class cv ($nginx_redirects) {
 	}
 	
 	monit::add_monitor { "cv":
-		source => "puppet:///modules/cv/monit/cv.conf",
-		require => File["/srv/www/cv"]
+		source => "puppet:///modules/cv/monit/cv.conf"
 	}
 }

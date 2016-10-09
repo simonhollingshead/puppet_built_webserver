@@ -37,7 +37,6 @@ class coreservices {
 	}
 	
 	monit::add_monitor { "ssh":
-		source => "puppet:///modules/coreservices/monit/ssh.conf",
-		require => Package["ssh"]
+		source => "puppet:///modules/coreservices/monit/ssh.conf"
 	}
 }

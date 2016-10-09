@@ -70,7 +70,6 @@ class domainwatch {
 	}
 	
 	monit::add_monitor { "domainwatch":
-		source => "puppet:///modules/domainwatch/monit/domainwatch.conf",
-		require => [Elasticsearch::Instance["es-01"], Package["rabbitmq-server"]]
+		source => "puppet:///modules/domainwatch/monit/domainwatch.conf"
 	}
 }

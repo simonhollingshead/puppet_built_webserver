@@ -1,12 +1,18 @@
-Apply firewall rules to IPv6 as well
-Weechat
-Mail server
-Subdomains: CV, GPM, Stats (NTP+PB+Email), puppet
-Automatic Podcast Generator
-Samba share mapping
-Set up VPN
-Extract composer updates into own class
-Deploy web minis
-Finish off LetsEncrypt by default on all newly made domains.
+IPv6 Firewall Rules
+Weechat Plugins
+Letsencrypt Nginx
+Automatic update checker for Bower, Flyway, Composer
+Improve Launch Calendar
+
+Servers:
+  Mail
+  Samba/Other File Storage
+  VPN
+
+Subdomains:
+  Progress Bars
+  Automatic Podcast Generator
+  Web Minis
+
+
 Create 'update checker' script for Bower, flyway, composer, etc.  Include remaining apt updates to perform.  Hook into monit and remove apt_all from munin.
-Make launch calendar better.
