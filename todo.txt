@@ -1,7 +1,7 @@
 IPv6 Firewall Rules
-Weechat Plugins
+Set up Weechat (e.g. server names, nick)
 Letsencrypt Nginx
-Automatic update checker for Bower, Flyway, Composer
+Automatic update checker for Bower, Flyway, Composer (move npm-check-updates out of nginx)
 Improve Launch Calendar
 
 Servers:

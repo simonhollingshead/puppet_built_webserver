@@ -39,4 +39,8 @@ class coreservices {
 	monit::add_monitor { "ssh":
 		source => "puppet:///modules/coreservices/monit/ssh.conf"
 	}
+
+	monit::add_monitor { "disk":
+		source => "puppet:///modules/coreservices/monit/disk.conf"
+	}
 }

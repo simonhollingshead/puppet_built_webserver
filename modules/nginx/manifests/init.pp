@@ -1,5 +1,5 @@
 class nginx($letsencrypt_email) {
-    package { 'bower':
+    package { ['bower', 'npm-check-updates']:
         ensure   => 'present',
         provider => 'npm',
         require => File["/usr/bin/node"]
