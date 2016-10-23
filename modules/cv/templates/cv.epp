@@ -139,7 +139,20 @@ GlobalGamingHQ's most popular website, RuneHQ, is a RuneScape fansite with hundr
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
-%	AWARDS SECTION
+%       CERTIFICATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{certification}
+\begin{entrylist}
+\entry
+{Oct 2016}
+{Professional Scrum Developer I}
+{from Scrum.org}
+{}
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	TRAINING SECTION
 %----------------------------------------------------------------------------------------
 
 \section{training}
@@ -147,7 +160,7 @@ GlobalGamingHQ's most popular website, RuneHQ, is a RuneScape fansite with hundr
 \entry
 {Jul 2016}
 {Professional Scrum Developer {\normalfont by QA for Scrum.org}}
-{Scrum, PSD I certification}
+{Scrum}
 {}
 %------------------------------------------------
 \entry
