@@ -8,11 +8,11 @@ from bs4 import BeautifulSoup
 
 def calc_key(quarter, remaining_in_quarter):
     if quarter in ["P", "Suspended"]:
-        return str(60 * 60)
+        return str((60 * 60) + 1)
     elif quarter == "H":
         return str(30 * 60)
     elif quarter in ["F","FO"]:
-        return str((60 * 60) + 1)
+        return str((60 * 60) + 2)
     else:
         full_quarters = max((4 - int(quarter)) * (15 * 60), 0)
         current_quarter = sum(int(a) * b for a, b in zip(remaining_in_quarter.split(":"), [60, 1]))
