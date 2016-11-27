@@ -13,13 +13,13 @@ if __name__ == '__main__':
         next(csv_reader)  # Remove the headers.
         for row in csv_reader:
             loan_part = ""
-            if "Interest repayment for loan part " in row[1]:
+            if ("Interest repayment for loan part " in row[1]) or ("Early interest repayment for loan part " in row[1]):
                 loan_part = row[1].split(" ")[-1]
                 if row[0]+loan_part in entries:
                     entries[row[0]+loan_part]["interest"] = row[2]
                 else:
                     entries[row[0] + loan_part] = {"interest": row[2]}
-            elif ("Principal repayment for loan part " in row[1]) or ("Early principal repayment for loan part" in row[1]):
+            elif ("Principal repayment for loan part " in row[1]) or ("Early principal repayment for loan part " in row[1]):
                 loan_part = row[1].split(" ")[-1]
                 if row[0]+loan_part in entries:
                     entries[row[0]+loan_part]["principal"] = row[2]
