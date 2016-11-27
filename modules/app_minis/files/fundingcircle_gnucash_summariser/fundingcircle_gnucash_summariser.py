@@ -25,7 +25,7 @@ if __name__ == '__main__':
                     entries[row[0]+loan_part]["principal"] = row[2]
                 else:
                     entries[row[0] + loan_part] = {"principal": row[2]}
-            elif "Servicing fee for Loan ID " in row[1]:
+            elif ("Servicing fee for Loan ID " in row[1]) or ("Servicing fee for loan part " in row[1]):
                 loan_part = row[1].split(";")[1].split(" ")[-1]
                 if row[0]+loan_part in entries:
                     entries[row[0]+loan_part]["fee"] = row[3]
