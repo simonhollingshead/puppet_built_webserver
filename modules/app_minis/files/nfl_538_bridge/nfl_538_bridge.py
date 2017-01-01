@@ -61,7 +61,7 @@ if __name__ == '__main__':
             "away_score": int(game.attrib["vs"]),
             "in_redzone": game.attrib["rz"],
             "remaining_in_quarter": game.attrib.get("k", ""),
-            "possession_initials": game.attrib.get("p", "")
+            "possession_initials": fix_inits(game.attrib.get("p", ""))
         }
 
     games_in_order = sorted(game_dict.keys(), key=lambda x: (int(x.split("-")[0]), int(x.split("-")[1])))
