@@ -19,13 +19,13 @@ include nginx
 include munin
 include python
 include cv
-include launchcalendar
+# include launchcalendar
 include ntp
 include utils
 include users
 include users::simon
 include coreservices
-include domainwatch
+# include domainwatch
 include puppet
 include postgres
 include monit
