@@ -16,3 +16,5 @@ Subdomains:
 
 
 Create 'update checker' script for Bower, flyway, composer, etc.  Include remaining apt updates to perform.  Hook into monit and remove apt_all from munin.
+
+Check why node/npm are in first.
