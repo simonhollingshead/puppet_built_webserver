@@ -2,6 +2,10 @@ class users::simon ($password,$github_key) {
     package { "zsh":
     	ensure => installed
     }
+    
+    group { "simon":
+        ensure => present
+    }
 
     @user { "simon":
         ensure => present,
@@ -13,7 +17,7 @@ class users::simon ($password,$github_key) {
         home => "/home/simon",
         purge_ssh_keys => true,
         shell => "/usr/bin/zsh",
-        require => [Package["zsh"],Group["wheel"]]
+        require => [Package["zsh"],Group["wheel"],Group["simon"]]
     }
 	
 	User <| title == simon |>
