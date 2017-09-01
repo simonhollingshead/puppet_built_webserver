@@ -39,7 +39,6 @@ EX1 2HL
 \href{mailto:me@simonhollingshead.com}{\footnotesize{me@simonhollingshead.com}}
 ~
 07580 619 346
-01483 \textbf{[ASK ME]}
 ~
 {\textbf{Best contact methods:}}
 Email, InMail, Mobile \ding{51}
@@ -84,7 +83,7 @@ Walking
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2011--2014}
+{2011 -- 2014}
 {BA Hons. {\normalfont in Computer Science (Class }2.1{\normalfont )}}
 {Queens' College, University of Cambridge}
 {In this three year course, I was exposed to nearly 60 different lecture series covering everything from the lowest level hardware and mathematical theory to the highest level programming languages and e-commerce concepts.
@@ -94,14 +93,14 @@ Walking
 }
 %------------------------------------------------
 \entry
-{2009--2011}
+{2009 -- 2011}
 {A Levels {\normalfont (}A* {\normalfont Computing, }A* {\normalfont Maths, }A {\normalfont Fthr. Maths, }A {\normalfont Physics)}}
-{Exeter College, Exeter}
+{Exeter College}
 {}
 %------------------------------------------------
 \entry
-{2005--2009}
-{GCSEs {\normalfont (incl.\ 11 }A* {\normalfont -- }A{\normalfont ) and} FSMQ {\normalfont (}B {\normalfont in Additional Maths)}}
+{2005 -- 2009}
+{GCSEs {\normalfont and} FSMQ {\normalfont (incl.\ 11 }A* {\normalfont -- }A{\normalfont )}}
 {St James' School, Exeter}
 {
 ~
@@ -119,22 +118,24 @@ A full academic history is provided at \href{http://cv.simonhollingshead.com/gra
 
 \begin{entrylist}
 \entry
-{{\footnotesize Since Sep 2014}}
-{BAE Systems Applied Intelligence, Guildford}
+{{\footnotesize Since Sep 2017}}
+{Google, London}
 {}
-{\emph{Software Engineer}, Commercial Solutions Enterprise Managed Security \\
-As a data scientist, I have been responsible for creating analytics identifying anomalous activity from within terabytes of data using Hadoop MapReduce and Hive.  As a software Engineer team, I have worked with data storage technologies such as ElasticSearch, performed data acquisition using Ruby and Fluentd, and generated reports using JasperReports and Talend.  I proudly create utilities for the support teams at the Security Operations Centre to increase efficiency and reduce delays in problem identification and issue resolution.
+{\emph{Site Reliability Engineer} \\
+I have recently begun a new role as a Site Reliability Engineer.  This section of my CV is a placeholder until such time as I am able to fully describe my role and responsibilities.  Its primary purpose is to indicate that I am not looking for new roles, so as to avoid confusion with recruiters.
 
 ~
 
 }
 %------------------------------------------------
 \entry
-{2009 -- 2011}
-{GlobalGamingHQ}
+{{\footnotesize Sep `14 -- Aug `17}}
+{BAE Systems Applied Intelligence, Guildford}
 {}
-{\emph{Site Development Manager} \\
-GlobalGamingHQ's most popular website, RuneHQ, is a RuneScape fansite with hundreds of thousands of hits per month.  Developing fast loading pages, intuitive layouts and responding to community feedback was incredibly important and gave me a great `jumping in at the deep end' introduction to large-scale web development.}
+{\emph{Software Engineer}, Commercial Solutions Enterprise Managed Security \\
+As a data scientist, I have been responsible for creating analytics identifying anomalous activity from within terabytes of data using Hadoop MapReduce and Hive.  As a Software Engineer, I have worked with data storage technologies such as ElasticSearch, performed data acquisition using Flume and Kafka, and generated reports using JasperReports and Talend.  I also created utilities for the support teams at the Security Operations Centre to increase efficiency and reduce delays in problem identification and issue resolution.
+
+}
 %------------------------------------------------
 \end{entrylist}
 
